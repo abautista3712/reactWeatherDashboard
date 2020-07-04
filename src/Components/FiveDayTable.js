@@ -1,7 +1,7 @@
 import React from "react";
 import Table from "react-bootstrap/Table";
 
-function FiveTable() {
+function FiveDayTable() {
   return (
     <Table>
       <thead>
@@ -28,4 +28,4 @@ function FiveTable() {
   );
 }
 
-export default FiveTable;
+export default FiveDayTable;

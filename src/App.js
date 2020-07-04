@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "bootstrap/dist/css/bootstrap.min.css";
-import FiveTable from "./Components/5day";
+import FiveDayTable from "./Components/FiveDayTable";
 // import logo from "./logo.svg";
 // import "./App.css";
 
@@ -32,7 +32,7 @@ function App() {
       </Row>
       <Row>
         <Col>
-          <FiveTable />
+          <FiveDayTable />
         </Col>
       </Row>
       <Row>
