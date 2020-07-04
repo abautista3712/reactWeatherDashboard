@@ -9,21 +9,26 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
-    <Container>
+    <Container className="text-center">
       <Row>
         <Col>City Name</Col>
       </Row>
       <Row>
         <Col>Temperature</Col>
       </Row>
-      <Row>
-        <Col>Weather</Col>
+      <Row className="justify-content-md-center">
+        <Col xs sm md lg xl="2">
+          Weather
+        </Col>
         <Col>Icon</Col>
       </Row>
       <Row>
         <Col>Humidity</Col>
+        <Col>hData</Col>
         <Col>Wind</Col>
+        <Col>wData</Col>
         <Col>UV</Col>
+        <Col>uvData</Col>
       </Row>
       <Row>
         <Col>
