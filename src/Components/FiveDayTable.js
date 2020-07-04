@@ -1,30 +1,42 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import API from "../utils/API";
 
 function FiveDayTable() {
+  useEffect(() => {
+    API.getWeather().then((res) => {
+      console.log(res);
+    });
+  });
   return (
-    <Table>
-      <thead>
-        <tr>
-          <th>Date</th>
-          <th>Temperature</th>
-          <th>Condition</th>
-          <th>Humidity</th>
-          <th>Wind</th>
-          <th>UV Index</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-      </tbody>
-    </Table>
+    <Row>
+      <Col>
+        <Table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Temperature</th>
+              <th>Condition</th>
+              <th>Humidity</th>
+              <th>Wind</th>
+              <th>UV Index</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </Table>
+      </Col>
+    </Row>
   );
 }
 
