@@ -19,7 +19,7 @@ function CurrentWeather() {
       setWeather(res.data.weather[0].main);
       setWeatherIcon(res.data.weather[0].icon);
       setHumidity(res.data.main.humidity);
-      setWind(res.data.wind.speed);
+      setWind(res.data.wind.speed.unit);
       setUV();
     });
   });
@@ -29,7 +29,7 @@ function CurrentWeather() {
         <Col>{city}</Col>
       </Row>
       <Row>
-        <Col>{temperature}</Col>
+        <Col>{temperature}°</Col>
       </Row>
       <Row className="justify-content-md-center">
         <Col xs sm md lg xl="2">
@@ -38,8 +38,10 @@ function CurrentWeather() {
         <Col>{weatherIcon}</Col>
       </Row>
       <Row>
+        <Col>Pressure</Col>
+        <Col>pData</Col>
         <Col>Humidity</Col>
-        <Col>{humidity}</Col>
+        <Col>{humidity} hPa</Col>
         <Col>Wind</Col>
         <Col>{wind}</Col>
         <Col>UV</Col>
