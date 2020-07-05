@@ -8,8 +8,10 @@ function CurrentWeather() {
   const [temperature, setTemperature] = useState();
   const [weather, setWeather] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
+  const [windSpeed, setWindSpeed] = useState();
+  const [windDirection, setWindDirection] = useState();
   const [humidity, setHumidity] = useState();
-  const [wind, setWind] = useState();
+  const [pressure, setPressure] = useState();
   const [UV, setUV] = useState();
 
   useEffect(() => {
@@ -18,8 +20,10 @@ function CurrentWeather() {
       setTemperature(((res.data.main.temp - 273.15) * (9 / 5) + 32).toFixed(1));
       setWeather(res.data.weather[0].main);
       setWeatherIcon(res.data.weather[0].icon);
+      setWindSpeed(res.data.wind.speed);
+      setWindDirection(res.data.wind.deg);
       setHumidity(res.data.main.humidity);
-      setWind(res.data.wind.speed.unit);
+      setPressure(res.data.main.pressure);
       setUV();
     });
   });
@@ -38,12 +42,14 @@ function CurrentWeather() {
         <Col>{weatherIcon}</Col>
       </Row>
       <Row>
-        <Col>Pressure</Col>
-        <Col>pData</Col>
-        <Col>Humidity</Col>
-        <Col>{humidity} hPa</Col>
         <Col>Wind</Col>
-        <Col>{wind}</Col>
+        <Col>
+          {windSpeed} m/s {windDirection}
+        </Col>
+        <Col>Humidity</Col>
+        <Col>{humidity} %</Col>
+        <Col>Pressure</Col>
+        <Col>{pressure} hPa</Col>
         <Col>UV</Col>
         <Col>{UV}</Col>
       </Row>
