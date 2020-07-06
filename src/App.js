@@ -5,11 +5,11 @@ import CurrentWeather from "./Components/CurrentWeather";
 import FiveDayTable from "./Components/FiveDayTable";
 import SearchCity from "./Components/SearchCity";
 // import logo from "./logo.svg";
-// import "./App.css";
+import "./App.css";
 
 function App() {
   return (
-    <Container className="text-center">
+    <Container className="text-center backgroundImg">
       <CurrentWeather />
       <FiveDayTable />
       <SearchCity />
