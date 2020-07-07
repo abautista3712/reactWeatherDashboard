@@ -18,6 +18,7 @@ function App() {
         width: "100wh",
         backgroundImage: `url(${clouds})`,
         backgroundSize: "cover",
+        color: "white",
       }}
     >
       <CurrentWeather />
