@@ -12,8 +12,13 @@ const clouds = "./assets/images/clouds.jpg";
 function App() {
   return (
     <Container
-      className="text-center"
-      style={{ backgroundImage: `url(${clouds})` }}
+      className="text-center mx-0 px-0"
+      style={{
+        height: "100vh",
+        width: "100wh",
+        backgroundImage: `url(${clouds})`,
+        backgroundSize: "cover",
+      }}
     >
       <CurrentWeather />
       <FiveDayTable />
