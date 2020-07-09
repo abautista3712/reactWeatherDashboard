@@ -5,10 +5,10 @@ import Col from "react-bootstrap/Col";
 function SearchCity() {
   return (
     <Row>
+      <Col style={{ borderStyle: "solid" }}>Search Input</Col>
       <Col style={{ borderStyle: "solid" }} xs={2} sm={2} md={2} lg={2} xl={2}>
         Search
       </Col>
-      <Col style={{ borderStyle: "solid" }}>Search Input</Col>
     </Row>
   );
 }

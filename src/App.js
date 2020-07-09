@@ -21,9 +21,9 @@ function App() {
         color: "white",
       }}
     >
+      <SearchCity />
       <CurrentWeather />
       <FiveDayTable />
-      <SearchCity />
     </Container>
   );
 }
