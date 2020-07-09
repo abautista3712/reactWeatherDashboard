@@ -15,7 +15,7 @@ function CurrentWeather() {
   const [UV, setUV] = useState();
 
   useEffect(() => {
-    API.getWeather().then((res) => {
+    API.getCurrentWeather().then((res) => {
       setCity(res.data.name);
       setTemperature(((res.data.main.temp - 273.15) * (9 / 5) + 32).toFixed(1));
       setWeather(res.data.weather[0].main);
