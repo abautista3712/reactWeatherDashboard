@@ -14,7 +14,7 @@ function FiveDayTable() {
     <Row>
       <Col>
         <Table>
-          <thead>
+          <thead style={{ background: "rgba(0,0,0,.5)", color: "white" }}>
             <tr>
               <th>Date</th>
               <th>Temperature</th>
