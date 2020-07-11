@@ -26,7 +26,7 @@ function CurrentWeather() {
       setPressure(res.data.main.pressure);
       setUV();
     });
-  });
+  }, []);
   return (
     <div>
       <Row>
