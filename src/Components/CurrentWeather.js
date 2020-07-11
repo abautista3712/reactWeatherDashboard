@@ -2,8 +2,10 @@ import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
+import moment from "moment";
 
 function CurrentWeather() {
+  const [date] = useState(moment().format("LLL"));
   const [city, setCity] = useState();
   const [temperature, setTemperature] = useState();
   const [weather, setWeather] = useState();
@@ -34,6 +36,9 @@ function CurrentWeather() {
       </Row>
       <Row>
         <Col>{temperature}°</Col>
+      </Row>
+      <Row>
+        <Col>{date}</Col>
       </Row>
       <Row className="justify-content-md-center">
         <Col xs sm md lg xl="2">
