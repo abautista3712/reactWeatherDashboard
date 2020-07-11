@@ -10,6 +10,9 @@ function FiveDayTable() {
       console.log(res.data);
     });
   });
+
+  const noonArr = [2, 10, 18, 26, 34];
+
   return (
     <Row>
       <Col>
@@ -25,13 +28,50 @@ function FiveDayTable() {
             </tr>
           </thead>
           <tbody>
+            {/* Tomorrow */}
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+            </tr>
+            {/* +2 Days */}
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+            </tr>
+            {/* +3 Days */}
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+            </tr>
+            {/* +4 Days */}
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
+            </tr>
+            {/* +5 Days */}
+            <tr>
+              <td>1</td>
+              <td>2</td>
+              <td>3</td>
+              <td>4</td>
+              <td>5</td>
+              <td>6</td>
             </tr>
           </tbody>
         </Table>
