@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import CurrentWeather from "./Components/CurrentWeather";
 import FiveDayTable from "./Components/FiveDayTable";
 import SearchCity from "./Components/SearchCity";
+// import API from "./utils/API";
 // import logo from "./logo.svg";
 // import "./App.css";
 

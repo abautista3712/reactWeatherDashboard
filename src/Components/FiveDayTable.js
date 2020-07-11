@@ -6,8 +6,8 @@ import API from "../utils/API";
 
 function FiveDayTable() {
   useEffect(() => {
-    API.getCurrentWeather().then((res) => {
-      console.log(res);
+    API.getFiveDayForecast().then((res) => {
+      console.log(res.data);
     });
   });
   return (

@@ -6,4 +6,9 @@ export default {
       `https://api.openweathermap.org/data/2.5/weather?q=seattle&appid=${process.env.REACT_APP_API_KEY}`
     );
   },
+  getFiveDayForecast: function () {
+    return axios.get(
+      `https://api.openweathermap.org/data/2.5/forecast?q=seattle&appid=${process.env.REACT_APP_API_KEY}`
+    );
+  },
 };
