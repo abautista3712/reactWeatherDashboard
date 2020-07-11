@@ -1,10 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
 
 function FiveDayTable() {
+  const [date, setDate] = useState();
+  const [temperature, setTemperature] = useState();
+  const [condition, setCondition] = useState();
+  const [humidity, setHumidity] = useState();
+  const [wind, setWind] = useState();
+  const [UV, setUV] = useState();
+
   useEffect(() => {
     API.getFiveDayForecast().then((res) => {
       console.log(res.data);
