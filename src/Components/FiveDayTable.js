@@ -3,9 +3,10 @@ import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
+import moment from "moment";
 
 function FiveDayTable() {
-  const [date, setDate] = useState();
+  const [date, setDate] = useState(moment().format("l"));
   const [temperature, setTemperature] = useState();
   const [condition, setCondition] = useState();
   const [humidity, setHumidity] = useState();
@@ -16,7 +17,6 @@ function FiveDayTable() {
   useEffect(() => {
     API.getFiveDayForecast().then((res) => {
       console.log(res);
-      setDate();
       setTemperature(res.data.list[2].main.temp);
       setCondition(res.data.list[2].weather[0].main);
       setHumidity(res.data.list[2].main.humidity);
@@ -45,7 +45,7 @@ function FiveDayTable() {
           <tbody style={{ color: "white" }}>
             {/* Tomorrow */}
             <tr>
-              <td>{date}</td>
+              <td>{moment().add(1, "days").format("l")}</td>
               <td>{temperature}</td>
               <td>{condition}</td>
               <td>{humidity} %</td>
@@ -56,7 +56,7 @@ function FiveDayTable() {
             </tr>
             {/* +2 Days */}
             <tr>
-              <td>1</td>
+              <td>{moment().add(2, "days").format("l")}</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
@@ -65,7 +65,7 @@ function FiveDayTable() {
             </tr>
             {/* +3 Days */}
             <tr>
-              <td>1</td>
+              <td>{moment().add(3, "days").format("l")}</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
@@ -74,7 +74,7 @@ function FiveDayTable() {
             </tr>
             {/* +4 Days */}
             <tr>
-              <td>1</td>
+              <td>{moment().add(4, "days").format("l")}</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
@@ -83,7 +83,7 @@ function FiveDayTable() {
             </tr>
             {/* +5 Days */}
             <tr>
-              <td>1</td>
+              <td>{moment().add(5, "days").format("l")}</td>
               <td>2</td>
               <td>3</td>
               <td>4</td>
