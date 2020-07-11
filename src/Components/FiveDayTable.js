@@ -10,15 +10,23 @@ function FiveDayTable() {
   const [condition, setCondition] = useState();
   const [humidity, setHumidity] = useState();
   const [wind, setWind] = useState();
+  const [windDirection, setWindDirection] = useState();
   const [UV, setUV] = useState();
 
   useEffect(() => {
     API.getFiveDayForecast().then((res) => {
-      console.log(res.data);
+      console.log(res);
+      setDate();
+      setTemperature(res.data.list[2].main.temp);
+      setCondition(res.data.list[2].weather[0].main);
+      setHumidity(res.data.list[2].main.humidity);
+      setWind(res.data.list[2].wind.speed);
+      setWindDirection(res.data.list[2].wind.deg);
+      setUV();
     });
-  });
+  }, []);
 
-  const noonArr = [2, 10, 18, 26, 34];
+  // const noonArr = [2, 10, 18, 26, 34];
 
   return (
     <Row>
@@ -37,12 +45,14 @@ function FiveDayTable() {
           <tbody>
             {/* Tomorrow */}
             <tr>
-              <td>1</td>
-              <td>2</td>
-              <td>3</td>
-              <td>4</td>
-              <td>5</td>
-              <td>6</td>
+              <td>{date}</td>
+              <td>{temperature}</td>
+              <td>{condition}</td>
+              <td>{humidity} %</td>
+              <td>
+                {wind} m/s {windDirection}
+              </td>
+              <td>{UV}</td>
             </tr>
             {/* +2 Days */}
             <tr>
