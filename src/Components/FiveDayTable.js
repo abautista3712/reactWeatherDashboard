@@ -42,7 +42,7 @@ function FiveDayTable() {
               <th>UV Index</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody style={{ color: "white" }}>
             {/* Tomorrow */}
             <tr>
               <td>{date}</td>
