@@ -17,7 +17,11 @@ function CurrentWeather() {
   const [UV, setUV] = useState();
 
   useEffect(() => {
+    API.getUV().then((res) => {
+      console.log(res);
+    });
     API.getCurrentWeather().then((res) => {
+      // console.log(res);
       setCity(res.data.name);
       setTemperature(((res.data.main.temp - 273.15) * (9 / 5) + 32).toFixed(1));
       setWeather(res.data.weather[0].main);
@@ -26,7 +30,6 @@ function CurrentWeather() {
       setWindDirection(res.data.wind.deg);
       setHumidity(res.data.main.humidity);
       setPressure(res.data.main.pressure);
-      setUV();
     });
   }, []);
   return (
