@@ -6,10 +6,12 @@ import API from "../utils/API";
 import moment from "moment";
 
 function FiveDayTable() {
+  const [coord, setCoord] = useState({});
   const [date, setDate] = useState(moment().format("l"));
   const [temperature, setTemperature] = useState();
   const [condition, setCondition] = useState();
   const [humidity, setHumidity] = useState();
+  const [weather, setWeather] = useState({ list: [] });
   const [wind, setWind] = useState();
   const [windDirection, setWindDirection] = useState();
   const [UV, setUV] = useState();
@@ -17,19 +19,30 @@ function FiveDayTable() {
   useEffect(() => {
     API.getFiveDayForecast().then((res) => {
       console.log(res);
+      setCoord(res.data.city.coord);
       setTemperature(res.data.list[2].main.temp);
       setCondition(res.data.list[2].weather[0].main);
       setHumidity(res.data.list[2].main.humidity);
       setWind(res.data.list[2].wind.speed);
       setWindDirection(res.data.list[2].wind.deg);
       setUV();
+      setWeather(res.data.list);
     });
+    // console.log(weather);
   }, []);
 
-  // const noonArr = [2, 10, 18, 26, 34];
+  const noonArr = [2, 10, 18, 26, 34];
+  // useEffect(() => {
+  //   console.log(
+  //     weather.map((data, index) => {
+  //       data;
+  //     }
+  //   );
+  // });
 
   return (
     <Row>
+      {console.log(coord)}
       <Col>
         <Table>
           <thead style={{ background: "rgba(0,0,0,.5)", color: "white" }}>
