@@ -18,9 +18,7 @@ export default {
       )
       .then(function (res) {
         const lat = res.data.coord.lat;
-        console.log(lat);
         const lon = res.data.coord.lon;
-        console.log(lon);
         return axios.get(
           `http://api.openweathermap.org/data/2.5/uvi/forecast?appid=${process.env.REACT_APP_API_KEY}&lat=${lat}&lon=${lon}`
         );
