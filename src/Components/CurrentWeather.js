@@ -18,7 +18,7 @@ function CurrentWeather() {
 
   useEffect(() => {
     API.getUV().then((res) => {
-      console.log(res);
+      // console.log(res);
     });
     API.getCurrentWeather().then((res) => {
       // console.log(res);
@@ -47,7 +47,9 @@ function CurrentWeather() {
         <Col xs sm md lg xl="2">
           {weather}
         </Col>
-        <Col>{weatherIcon}</Col>
+        <Col>
+          <img src={`http://openweathermap.org/img/w/${weatherIcon}.png`} />
+        </Col>
       </Row>
       <Row>
         <Col>Wind</Col>
