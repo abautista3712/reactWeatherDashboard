@@ -6,7 +6,6 @@ import API from "../utils/API";
 import moment from "moment";
 
 function FiveDayTable() {
-  const [coord, setCoord] = useState({});
   const [date, setDate] = useState(moment().format("l"));
   const [temperature, setTemperature] = useState();
   const [condition, setCondition] = useState();
@@ -17,15 +16,16 @@ function FiveDayTable() {
   const [UV, setUV] = useState();
 
   useEffect(() => {
+    API.getUV().then((res) => {
+      setUV(res.data[0].value);
+    });
     API.getFiveDayForecast().then((res) => {
-      console.log(res);
-      setCoord(res.data.city.coord);
+      // console.log(res);
       setTemperature(res.data.list[2].main.temp);
       setCondition(res.data.list[2].weather[0].main);
       setHumidity(res.data.list[2].main.humidity);
       setWind(res.data.list[2].wind.speed);
       setWindDirection(res.data.list[2].wind.deg);
-      setUV();
       setWeather(res.data.list);
     });
     // console.log(weather);
@@ -42,7 +42,7 @@ function FiveDayTable() {
 
   return (
     <Row>
-      {console.log(coord)}
+      {/* {console.log(coord)} */}
       <Col>
         <Table>
           <thead style={{ background: "rgba(0,0,0,.5)", color: "white" }}>
