@@ -45,7 +45,7 @@ function FiveDayTable() {
     <Row>
       {/* {console.log(coord)} */}
       <Col>
-        <Table>
+        <Table borderless striped size="sm">
           <thead className="backgroundHeader fontColor">
             <tr>
               <th>Date</th>
