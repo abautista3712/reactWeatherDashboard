@@ -46,7 +46,7 @@ function FiveDayTable() {
       {/* {console.log(coord)} */}
       <Col>
         <Table>
-          <thead className="fontColor" style={{ background: "rgba(0,0,0,.5)" }}>
+          <thead className="backgroundHeader fontColor">
             <tr>
               <th>Date</th>
               <th>Temperature</th>
@@ -56,7 +56,7 @@ function FiveDayTable() {
               <th>UV Index</th>
             </tr>
           </thead>
-          <tbody className="fontColor">
+          <tbody className="backgroundColor fontColor">
             {/* Tomorrow */}
             <tr>
               <td>{moment().add(1, "days").format("l")}</td>
