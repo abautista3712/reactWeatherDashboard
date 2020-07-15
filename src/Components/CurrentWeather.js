@@ -3,6 +3,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
 import moment from "moment";
+import "./CurrentWeather.css";
 
 function CurrentWeather() {
   const [date] = useState(moment().format("LLL"));
@@ -33,7 +34,7 @@ function CurrentWeather() {
     });
   }, []);
   return (
-    <div>
+    <div className="fontColor">
       <Row>
         <Col>{city}</Col>
       </Row>

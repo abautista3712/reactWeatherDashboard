@@ -6,7 +6,7 @@ import FiveDayTable from "./Components/FiveDayTable";
 import SearchCity from "./Components/SearchCity";
 // import API from "./utils/API";
 // import logo from "./logo.svg";
-// import "./App.css";
+import "./App.css";
 
 const clouds = "./assets/images/clouds.jpg";
 
@@ -16,10 +16,10 @@ function App() {
       className="text-center mx-0 px-0"
       style={{
         height: "100vh",
-        width: "100wh",
+        width: "100vw",
         backgroundImage: `url(${clouds})`,
         backgroundSize: "cover",
-        color: "white",
+        // color: "white",
       }}
     >
       <SearchCity />

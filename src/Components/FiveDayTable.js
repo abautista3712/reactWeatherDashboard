@@ -4,19 +4,20 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
 import moment from "moment";
+import "./FiveDayTable.css";
 
 function FiveDayTable() {
-  const [date, setDate] = useState(moment().format("l"));
   const [temperature, setTemperature] = useState();
   const [condition, setCondition] = useState();
   const [humidity, setHumidity] = useState();
-  const [weather, setWeather] = useState({ list: [] });
+  // const [weather, setWeather] = useState({ list: [] });
   const [wind, setWind] = useState();
   const [windDirection, setWindDirection] = useState();
   const [UV, setUV] = useState();
 
   useEffect(() => {
     API.getUV().then((res) => {
+      // console.log(res);
       setUV(res.data[0].value);
     });
     API.getFiveDayForecast().then((res) => {
@@ -26,12 +27,12 @@ function FiveDayTable() {
       setHumidity(res.data.list[2].main.humidity);
       setWind(res.data.list[2].wind.speed);
       setWindDirection(res.data.list[2].wind.deg);
-      setWeather(res.data.list);
+      // setWeather(res.data.list);
     });
     // console.log(weather);
   }, []);
 
-  const noonArr = [2, 10, 18, 26, 34];
+  // const noonArr = [2, 10, 18, 26, 34];
   // useEffect(() => {
   //   console.log(
   //     weather.map((data, index) => {
@@ -45,7 +46,7 @@ function FiveDayTable() {
       {/* {console.log(coord)} */}
       <Col>
         <Table>
-          <thead style={{ background: "rgba(0,0,0,.5)", color: "white" }}>
+          <thead className="fontColor" style={{ background: "rgba(0,0,0,.5)" }}>
             <tr>
               <th>Date</th>
               <th>Temperature</th>
@@ -55,7 +56,7 @@ function FiveDayTable() {
               <th>UV Index</th>
             </tr>
           </thead>
-          <tbody style={{ color: "white" }}>
+          <tbody className="fontColor">
             {/* Tomorrow */}
             <tr>
               <td>{moment().add(1, "days").format("l")}</td>
