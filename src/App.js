@@ -19,7 +19,6 @@ function App() {
         width: "100vw",
         backgroundImage: `url(${clouds})`,
         backgroundSize: "cover",
-        // color: "white",
       }}
     >
       <SearchCity />

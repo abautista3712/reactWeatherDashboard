@@ -16,10 +16,10 @@ function FiveDayTable() {
   const [UV, setUV] = useState();
 
   useEffect(() => {
-    API.getUV().then((res) => {
-      // console.log(res);
-      setUV(res.data[0].value);
-    });
+    // API.getUV().then((res) => {
+    //   console.log(res);
+    //   setUV(res.data[0].value);
+    // });
     API.getFiveDayForecast().then((res) => {
       // console.log(res);
       setTemperature(res.data.list[2].main.temp);
@@ -53,7 +53,7 @@ function FiveDayTable() {
               <th>Condition</th>
               <th>Humidity</th>
               <th>Wind</th>
-              <th>UV Index</th>
+              {/* <th>UV Index</th> */}
             </tr>
           </thead>
           <tbody className="backgroundColor fontColor">
@@ -66,7 +66,7 @@ function FiveDayTable() {
               <td>
                 {wind} m/s {windDirection}
               </td>
-              <td>{UV}</td>
+              {/* <td>{UV}</td> */}
             </tr>
             {/* +2 Days */}
             <tr>
@@ -75,7 +75,7 @@ function FiveDayTable() {
               <td>3</td>
               <td>4</td>
               <td>5</td>
-              <td>6</td>
+              {/* <td>UV</td> */}
             </tr>
             {/* +3 Days */}
             <tr>
@@ -84,7 +84,7 @@ function FiveDayTable() {
               <td>3</td>
               <td>4</td>
               <td>5</td>
-              <td>6</td>
+              {/* <td>UV</td> */}
             </tr>
             {/* +4 Days */}
             <tr>
@@ -93,7 +93,7 @@ function FiveDayTable() {
               <td>3</td>
               <td>4</td>
               <td>5</td>
-              <td>6</td>
+              {/* <td>UV</td> */}
             </tr>
             {/* +5 Days */}
             <tr>
@@ -102,7 +102,7 @@ function FiveDayTable() {
               <td>3</td>
               <td>4</td>
               <td>5</td>
-              <td>6</td>
+              {/* <td>UV</td> */}
             </tr>
           </tbody>
         </Table>

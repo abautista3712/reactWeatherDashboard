@@ -15,7 +15,7 @@ function CurrentWeather() {
   const [windDirection, setWindDirection] = useState();
   const [humidity, setHumidity] = useState();
   const [pressure, setPressure] = useState();
-  const [UV, setUV] = useState();
+  // const [UV, setUV] = useState();
 
   useEffect(() => {
     API.getUV().then((res) => {
@@ -45,9 +45,7 @@ function CurrentWeather() {
         <Col>{date}</Col>
       </Row>
       <Row className="justify-content-md-center">
-        <Col xs sm md lg xl="2">
-          {weather}
-        </Col>
+        <Col>{weather}</Col>
         <Col>
           <img src={`http://openweathermap.org/img/w/${weatherIcon}.png`} />
         </Col>
@@ -61,8 +59,8 @@ function CurrentWeather() {
         <Col>{humidity} %</Col>
         <Col>Pressure</Col>
         <Col>{pressure} hPa</Col>
-        <Col>UV</Col>
-        <Col>{UV}</Col>
+        {/* <Col>UV</Col> */}
+        {/* <Col>{UV}</Col> */}
       </Row>
     </div>
   );
