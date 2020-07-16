@@ -55,7 +55,7 @@ function CurrentWeather() {
         </Col>
       </Row>
       <Row className="mb-1">
-        <Col>
+        <Col style={{ fontSize: 22 }}>
           {weather}{" "}
           <img
             src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
