@@ -33,6 +33,14 @@ function CurrentWeather() {
       setPressure(res.data.main.pressure);
     });
   }, []);
+
+  function getDirection(angle) {
+    const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
+    return directions[
+      Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8
+    ];
+  }
+
   return (
     <div className="fontStyle">
       <Row className="mt-2">
@@ -59,7 +67,7 @@ function CurrentWeather() {
         <Col md={{ span: 2, offset: 3 }}>
           <Col className="font-weight-bold">Wind</Col>
           <Col>
-            {windSpeed} m/s {windDirection}
+            {windSpeed} m/s {getDirection(windDirection)}
           </Col>
         </Col>
         <Col md={{ span: 2 }}>
