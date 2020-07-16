@@ -6,6 +6,7 @@
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-.fontColor {
-  color: white;
+.fontStyle {
+  font-family: "Open Sans", sans-serif;
+  color: #fff;
 }

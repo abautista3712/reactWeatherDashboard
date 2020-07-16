@@ -34,7 +34,7 @@ function CurrentWeather() {
     });
   }, []);
   return (
-    <div className="fontColor">
+    <div className="fontStyle">
       <Row>
         <Col>{city}</Col>
       </Row>
@@ -44,23 +44,30 @@ function CurrentWeather() {
       <Row>
         <Col>{date}</Col>
       </Row>
-      <Row className="justify-content-md-center">
-        <Col>{weather}</Col>
+      <Row className="">
+        <Col className="">{weather}</Col>
         <Col>
-          <img src={`http://openweathermap.org/img/w/${weatherIcon}.png`} />
+          <img
+            src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
+            alt="Weather Icon"
+          />
         </Col>
       </Row>
       <Row>
-        <Col className="font-weight-bold text-right">Wind</Col>
-        <Col className="text-left">
-          {windSpeed} m/s {windDirection}
+        <Col></Col>
+        <Col>
+          <Col className="font-weight-bold text-right">Wind</Col>
+          <Col className="text-left">
+            {windSpeed} m/s {windDirection}
+          </Col>
+          <Col className="font-weight-bold text-right">Humidity</Col>
+          <Col className="text-left">{humidity} %</Col>
+          <Col className="font-weight-bold text-right">Pressure</Col>
+          <Col className="text-left">{pressure} hPa</Col>
+          {/* <Col>UV</Col> */}
+          {/* <Col>{UV}</Col> */}
         </Col>
-        <Col className="font-weight-bold text-right">Humidity</Col>
-        <Col className="text-left">{humidity} %</Col>
-        <Col className="font-weight-bold text-right">Pressure</Col>
-        <Col className="text-left">{pressure} hPa</Col>
-        {/* <Col>UV</Col> */}
-        {/* <Col>{UV}</Col> */}
+        <Col></Col>
       </Row>
     </div>
   );

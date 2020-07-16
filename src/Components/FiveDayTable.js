@@ -13,7 +13,7 @@ function FiveDayTable() {
   // const [weather, setWeather] = useState({ list: [] });
   const [wind, setWind] = useState();
   const [windDirection, setWindDirection] = useState();
-  const [UV, setUV] = useState();
+  // const [UV, setUV] = useState();
 
   useEffect(() => {
     // API.getUV().then((res) => {
@@ -46,7 +46,7 @@ function FiveDayTable() {
       {/* {console.log(coord)} */}
       <Col>
         <Table borderless striped size="sm">
-          <thead className="backgroundHeader fontColor">
+          <thead className="backgroundHeader fontStyle">
             <tr>
               <th>Date</th>
               <th>Temperature</th>
@@ -56,7 +56,7 @@ function FiveDayTable() {
               {/* <th>UV Index</th> */}
             </tr>
           </thead>
-          <tbody className="backgroundColor fontColor">
+          <tbody className="backgroundColor fontStyle">
             {/* Tomorrow */}
             <tr>
               <td>{moment().add(1, "days").format("l")}</td>
