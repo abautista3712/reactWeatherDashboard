@@ -35,18 +35,18 @@ function CurrentWeather() {
   }, []);
   return (
     <div className="fontStyle">
-      <Row>
+      <Row className="mt-2">
         <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
       </Row>
       <Row>
         <Col>{date}</Col>
       </Row>
-      <Row>
+      <Row className="mt-2 mb-0">
         <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
           {temperature}°
         </Col>
       </Row>
-      <Row>
+      <Row className="mb-1">
         <Col>
           {weather}{" "}
           <img
@@ -55,7 +55,7 @@ function CurrentWeather() {
           />
         </Col>
       </Row>
-      <Row>
+      <Row className="mb-2">
         <Col md={{ span: 2, offset: 3 }}>
           <Col className="font-weight-bold">Wind</Col>
           <Col>
