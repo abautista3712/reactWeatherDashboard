@@ -54,20 +54,26 @@ function CurrentWeather() {
         </Col>
       </Row>
       <Row>
-        <Col></Col>
-        <Col>
-          <Col className="font-weight-bold text-right">Wind</Col>
-          <Col className="text-left">
+        {/* <Col xs={3} sm={3} md={3} lg={3} xl={3}></Col> */}
+        {/* <Col> */}
+        <Col md={{ span: 2, offset: 3 }}>
+          <Col className="font-weight-bold">Wind</Col>
+          <Col className="">
             {windSpeed} m/s {windDirection}
           </Col>
-          <Col className="font-weight-bold text-right">Humidity</Col>
-          <Col className="text-left">{humidity} %</Col>
-          <Col className="font-weight-bold text-right">Pressure</Col>
-          <Col className="text-left">{pressure} hPa</Col>
-          {/* <Col>UV</Col> */}
-          {/* <Col>{UV}</Col> */}
         </Col>
-        <Col></Col>
+        <Col md={{ span: 2 }}>
+          <Col className="font-weight-bold">Humidity</Col>
+          <Col className="">{humidity} %</Col>
+        </Col>
+        <Col md={{ span: 2 }}>
+          <Col className="font-weight-bold">Pressure</Col>
+          <Col className="">{pressure} hPa</Col>
+        </Col>
+        {/* <Col>UV</Col> */}
+        {/* <Col>{UV}</Col> */}
+        {/* </Col> */}
+        {/* <Col></Col> */}
       </Row>
     </div>
   );
