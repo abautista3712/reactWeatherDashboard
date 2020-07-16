@@ -36,13 +36,15 @@ function CurrentWeather() {
   return (
     <div className="fontStyle">
       <Row>
-        <Col>{city}</Col>
-      </Row>
-      <Row>
-        <Col>{temperature}°</Col>
+        <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
       </Row>
       <Row>
         <Col>{date}</Col>
+      </Row>
+      <Row>
+        <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
+          {temperature}°
+        </Col>
       </Row>
       <Row>
         <Col>
