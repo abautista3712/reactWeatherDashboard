@@ -19,7 +19,8 @@ function SearchCity() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const handleChange = (event) => {
-    setSearchTerm(event.target.value);
+    const { value } = event.target;
+    setSearchTerm(value);
   };
 
   useEffect(() => {
@@ -32,7 +33,7 @@ function SearchCity() {
   return (
     <form>
       <Row>
-        <Col style={{ borderStyle: "solid" }}>
+        <Col className="px-0" style={{ borderStyle: "solid" }}>
           <InputGroup>
             <FormControl
               type="text"
@@ -52,16 +53,6 @@ function SearchCity() {
             ))}
           </ul>
         </Col>
-        {/* <Col
-          style={{ borderStyle: "solid" }}
-          xs={2}
-          sm={2}
-          md={2}
-          lg={2}
-          xl={2}
-        >
-          Search
-        </Col> */}
       </Row>
     </form>
   );
