@@ -41,7 +41,9 @@ function SearchCity() {
               onChange={handleChange}
             />
             <InputGroup.Append>
-              <Button variant="secondary">Button</Button>
+              <Button variant="secondary">
+                <i className="fas fa-search mx-1"></i>
+              </Button>
             </InputGroup.Append>
           </InputGroup>
           <ul>
