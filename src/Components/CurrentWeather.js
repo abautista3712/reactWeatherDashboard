@@ -49,7 +49,7 @@ function CurrentWeather() {
       <Row>
         <Col>{date}</Col>
       </Row>
-      <Row className="mt-2 mb-0">
+      <Row className="mt-1 mb-0">
         <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
           {temperature}°
         </Col>
