@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import InputGroup from "react-bootstrap/InputGroup";
+import FormControl from "react-bootstrap/FormControl";
+import Button from "react-bootstrap/Button";
 
 const people = [
   "Siri",
@@ -30,19 +33,24 @@ function SearchCity() {
     <form>
       <Row>
         <Col style={{ borderStyle: "solid" }}>
-          <input
-            type="text"
-            placeholder="Search"
-            value={searchTerm}
-            onChange={handleChange}
-          />
+          <InputGroup>
+            <FormControl
+              type="text"
+              placeholder="Search City"
+              value={searchTerm}
+              onChange={handleChange}
+            />
+            <InputGroup.Append>
+              <Button variant="secondary">Button</Button>
+            </InputGroup.Append>
+          </InputGroup>
           <ul>
             {searchResults.map((item) => (
               <li>{item}</li>
             ))}
           </ul>
         </Col>
-        <Col
+        {/* <Col
           style={{ borderStyle: "solid" }}
           xs={2}
           sm={2}
@@ -51,7 +59,7 @@ function SearchCity() {
           xl={2}
         >
           Search
-        </Col>
+        </Col> */}
       </Row>
     </form>
   );
