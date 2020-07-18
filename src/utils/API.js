@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
   getCurrentWeather: function () {
     return axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=seattle&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/weather?q=Los Angeles&appid=${process.env.REACT_APP_API_KEY}`
     );
   },
   getFiveDayForecast: function () {
