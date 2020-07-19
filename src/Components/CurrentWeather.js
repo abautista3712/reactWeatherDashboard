@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
-import moment from "moment";
+import CurrentDate from "./CurrentDate";
 import "./CurrentWeather.css";
 
 function CurrentWeather() {
-  const [date] = useState(moment().format("LLL"));
   const [city, setCity] = useState();
   const [temperature, setTemperature] = useState();
   const [weather, setWeather] = useState();
@@ -47,7 +46,7 @@ function CurrentWeather() {
         <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
       </Row>
       <Row>
-        <Col>{date}</Col>
+        <CurrentDate />
       </Row>
       <Row className="mt-1 mb-0">
         <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
