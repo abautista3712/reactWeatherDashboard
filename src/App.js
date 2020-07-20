@@ -14,6 +14,7 @@ function App() {
     <Container
       className="text-center"
       style={{
+        height: "100vh",
         backgroundImage: `url(${clouds})`,
         backgroundSize: "cover",
       }}
