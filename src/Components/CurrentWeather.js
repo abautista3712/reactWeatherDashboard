@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
+import SearchCity from "./SearchCity";
 import CurrentDate from "./CurrentDate";
 import "./CurrentWeather.css";
 
@@ -39,6 +40,7 @@ function CurrentWeather() {
 
   return (
     <div className="fontStyle">
+      <SearchCity />
       <Row className="mt-2">
         <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
       </Row>

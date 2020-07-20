@@ -5,17 +5,7 @@ import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
 
-const people = [
-  "Siri",
-  "Alexa",
-  "Google",
-  "Facebook",
-  "Twitter",
-  "LinkedIn",
-  "SinkedIn",
-];
-
-function SearchCity() {
+function SearchCity(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const handleChange = (event) => {
@@ -24,16 +14,16 @@ function SearchCity() {
   };
 
   useEffect(() => {
-    const results = people.filter((person) =>
-      person.toLowerCase().includes(searchTerm)
-    );
-    setSearchResults(results);
+    // const results = people.filter((person) =>
+    //   person.toLowerCase().includes(searchTerm)
+    // );
+    // setSearchResults(results);
   }, [searchTerm]);
 
   return (
     <form>
       <Row>
-        <Col className="px-0" style={{ borderStyle: "solid" }}>
+        <Col className="px-0">
           <InputGroup>
             <FormControl
               type="text"
@@ -42,7 +32,7 @@ function SearchCity() {
               onChange={handleChange}
             />
             <InputGroup.Append>
-              <Button variant="" style={{ backgroundColor: "lightgrey" }}>
+              <Button style={{ backgroundColor: "lightgrey" }}>
                 <i className="fas fa-search mx-1"></i>
               </Button>
             </InputGroup.Append>
