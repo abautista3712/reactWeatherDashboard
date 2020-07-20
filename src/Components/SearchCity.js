@@ -23,7 +23,7 @@ function SearchCity(props) {
   return (
     <form>
       <Row>
-        <Col className="px-0">
+        <Col className="pt-1 px-1">
           <InputGroup>
             <FormControl
               type="text"

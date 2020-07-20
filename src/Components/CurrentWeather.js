@@ -41,7 +41,7 @@ function CurrentWeather() {
   return (
     <div className="fontStyle">
       <SearchCity />
-      <Row className="mt-2">
+      <Row className="mt-1">
         <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
       </Row>
       <Row>
@@ -61,7 +61,7 @@ function CurrentWeather() {
           />
         </Col>
       </Row>
-      <Row className="mb-2">
+      <Row className="mb-4">
         <Col md={{ span: 2, offset: 3 }}>
           <Col className="font-weight-bold">Wind</Col>
           <Col>
