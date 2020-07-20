@@ -44,9 +44,19 @@ function FiveDayTable() {
   return (
     <Row>
       {/* {console.log(coord)} */}
+
       <Col>
+        <div
+          className="mb-1 fontStyle"
+          style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}
+        >
+          5-Day Forecast
+        </div>
         <Table borderless striped size="sm">
-          <thead className="backgroundHeader fontStyle">
+          <thead
+            className="fontStyle"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+          >
             <tr>
               <th>Date</th>
               <th>Temperature</th>
@@ -56,11 +66,14 @@ function FiveDayTable() {
               {/* <th>UV Index</th> */}
             </tr>
           </thead>
-          <tbody className="backgroundColor fontStyle">
+          <tbody
+            className="fontStyle"
+            style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
+          >
             {/* Tomorrow */}
             <tr>
               <td>{moment().add(1, "days").format("l")}</td>
-              <td>{temperature}</td>
+              <td>{temperature}°</td>
               <td>{condition}</td>
               <td>{humidity} %</td>
               <td>
