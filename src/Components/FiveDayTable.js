@@ -10,7 +10,7 @@ function FiveDayTable() {
   const [temperature, setTemperature] = useState();
   const [condition, setCondition] = useState();
   const [humidity, setHumidity] = useState();
-  // const [weather, setWeather] = useState({ list: [] });
+  const [weather, setWeather] = useState({ weather: [] });
   const [wind, setWind] = useState();
   const [windDirection, setWindDirection] = useState();
   // const [UV, setUV] = useState();
@@ -27,24 +27,42 @@ function FiveDayTable() {
       setHumidity(res.data.list[2].main.humidity);
       setWind(res.data.list[2].wind.speed);
       setWindDirection(res.data.list[2].wind.deg);
-      // setWeather(res.data.list);
+      setWeather(res.data.list);
     });
     // console.log(weather);
   }, []);
 
-  // const noonArr = [2, 10, 18, 26, 34];
-  // useEffect(() => {
-  //   console.log(
-  //     weather.map((data, index) => {
-  //       data;
-  //     }
-  //   );
-  // });
+  const noonArr = [2, 10, 18, 26, 34];
+  useEffect(() => {
+    setWeather(
+      API.getFiveDayForecast().then((res) => {
+        // setWeather(res.data.list);
+        res.data.list
+          .filter(
+            (rawData, index) =>
+              (index === 2) |
+              (index === 10) |
+              (index === 18) |
+              (index === 26) |
+              (index === 34)
+          )
+          .map((filteredData, index) => {
+            console.log(filteredData);
+            // console.log(weather);
+          });
+      })
+    );
+    // noonArr
+    //   .filter((rawData, index) => index === noonArr)
+    //   .map((filteredData, index) => {
+    //     console.log(filteredData);
+    //   });
+    console.log("useEffect has been called");
+  }, []);
 
   return (
     <Row>
-      {/* {console.log(coord)} */}
-
+      {/* {console.log(weather)} */}
       <Col>
         <div
           className="mb-1 fontStyle"
