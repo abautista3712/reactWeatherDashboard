@@ -3,7 +3,6 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
-import Button from "react-bootstrap/Button";
 
 function SearchCity(props) {
   const [searchTerm, setSearchTerm] = useState("");
@@ -25,17 +24,17 @@ function SearchCity(props) {
       <Row>
         <Col className="pt-1 px-1">
           <InputGroup>
+            <InputGroup.Prepend>
+              <InputGroup.Text style={{ backgroundColor: "#fff" }}>
+                <i className="fas fa-search mx-1"></i>
+              </InputGroup.Text>
+            </InputGroup.Prepend>
             <FormControl
               type="text"
               placeholder="Search City"
               value={searchTerm}
               onChange={handleChange}
             />
-            <InputGroup.Append>
-              <Button style={{ backgroundColor: "lightgrey" }}>
-                <i className="fas fa-search mx-1"></i>
-              </Button>
-            </InputGroup.Append>
           </InputGroup>
           <ul>
             {searchResults.map((item) => (
