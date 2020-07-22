@@ -35,22 +35,23 @@ function FiveDayTable() {
   // const noonArr = [2, 10, 18, 26, 34];
   useEffect(() => {
     API.getFiveDayForecast("Los Angeles").then((res) => {
-      setWeather(res.data.list);
-      // console.log(weather);
+      setWeather(
+        res.data.list
+          .filter(
+            (rawData, index) =>
+              (index === 2) |
+              (index === 10) |
+              (index === 18) |
+              (index === 26) |
+              (index === 34)
+          )
+          .map((filteredData, index) => {
+            console.log(filteredData);
+            return filteredData;
+          })
+      );
     });
-    // .then(console.log(weather));
-    // console.log(weather);
-    // .filter(
-    //   (rawData, index) =>
-    //     (index === 2) |
-    //     (index === 10) |
-    //     (index === 18) |
-    //     (index === 26) |
-    //     (index === 34)
-    // );
-    // .map((filteredData, index) => {
-    //   console.log(filteredData);
-    // });
+
     // });
 
     // console.log(weather);
@@ -59,7 +60,7 @@ function FiveDayTable() {
 
   return (
     <Row>
-      {console.log(weather)}
+      {console.log(weather[1])}
       <Col>
         <div
           className="mb-1 fontStyle"
