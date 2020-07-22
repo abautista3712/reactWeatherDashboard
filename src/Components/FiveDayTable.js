@@ -15,22 +15,22 @@ function FiveDayTable() {
   const [weather, setWeather] = useState({ weather: [] });
   // const [UV, setUV] = useState();
 
-  useEffect(() => {
-    // API.getUV().then((res) => {
-    //   console.log(res);
-    //   setUV(res.data[0].value);
-    // });
-    API.getFiveDayForecast("Los Angeles").then((res) => {
-      // console.log(res);
-      setTemperature(res.data.list[2].main.temp);
-      setCondition(res.data.list[2].weather[0].main);
-      setHumidity(res.data.list[2].main.humidity);
-      setWind(res.data.list[2].wind.speed);
-      setWindDirection(res.data.list[2].wind.deg);
-      // setWeather(res.data.list);
-    });
-    // console.log(weather);
-  }, []);
+  // useEffect(() => {
+  //   // API.getUV().then((res) => {
+  //   //   console.log(res);
+  //   //   setUV(res.data[0].value);
+  //   // });
+  //   API.getFiveDayForecast("Los Angeles").then((res) => {
+  //     // console.log(res);
+  //     setTemperature(res.data.list[2].main.temp);
+  //     setCondition(res.data.list[2].weather[0].main);
+  //     setHumidity(res.data.list[2].main.humidity);
+  //     setWind(res.data.list[2].wind.speed);
+  //     setWindDirection(res.data.list[2].wind.deg);
+  //     // setWeather(res.data.list);
+  //   });
+  //   // console.log(weather);
+  // }, []);
 
   // const noonArr = [2, 10, 18, 26, 34];
   useEffect(() => {
