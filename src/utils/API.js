@@ -6,9 +6,9 @@ export default {
       `https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${process.env.REACT_APP_API_KEY}`
     );
   },
-  getFiveDayForecast: function () {
+  getFiveDayForecast: function (query) {
     return axios.get(
-      `https://api.openweathermap.org/data/2.5/forecast?q=seattle&appid=${process.env.REACT_APP_API_KEY}`
+      `https://api.openweathermap.org/data/2.5/forecast?q=${query}&appid=${process.env.REACT_APP_API_KEY}`
     );
   },
   getUV: function () {
