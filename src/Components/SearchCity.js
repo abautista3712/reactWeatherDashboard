@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
@@ -7,18 +7,18 @@ import Button from "react-bootstrap/Button";
 
 function SearchCity(props) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchResults] = useState([]);
   const handleChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
   };
 
-  useEffect(() => {
-    // const results = people.filter((person) =>
-    //   person.toLowerCase().includes(searchTerm)
-    // );
-    // setSearchResults(results);
-  }, [searchTerm]);
+  // useEffect(() => {
+  //   const results = people.filter((person) =>
+  //     person.toLowerCase().includes(searchTerm)
+  //   );
+  //   setSearchResults(results);
+  // }, [searchTerm]);
 
   return (
     <form>
