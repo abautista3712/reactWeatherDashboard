@@ -34,6 +34,7 @@ function SearchCity(props) {
               placeholder="Search City"
               value={searchTerm}
               onChange={handleChange}
+              style={{ boxShadow: "none" }}
             />
           </InputGroup>
           <ul>
