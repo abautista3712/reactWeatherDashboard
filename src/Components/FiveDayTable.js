@@ -12,7 +12,8 @@ function FiveDayTable() {
   const [humidity, setHumidity] = useState();
   const [wind, setWind] = useState();
   const [windDirection, setWindDirection] = useState();
-  const [weather, setWeather] = useState({ list: [] });
+  const [isLoading, setIsLoading] = useState(true);
+  const [weather, setWeather] = useState({ weather: [] });
   // const [UV, setUV] = useState();
 
   // useEffect(() => {
@@ -34,29 +35,44 @@ function FiveDayTable() {
 
   // let noonArr = [2, 10, 18, 26, 34];
   useEffect(() => {
-    API.getFiveDayForecast("Los Angeles").then((res) => {
-      setWeather(
-        res.data.list
-          .filter(
-            (index) =>
-              (index === 2) |
-              (index === 10) |
-              (index === 18) |
-              (index === 26) |
-              (index === 34)
-          )
-          .map((filteredData) => {
-            return filteredData;
-            // console.log(filteredData);
-          })
-      );
-      console.log(weather);
-    });
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const fetcher = await API.getFiveDayForecast("Los Angeles");
+        const response = await fetcher.data.list;
+        setWeather(response);
+      } catch (err) {
+        console.log("Error");
+      } finally {
+        setIsLoading(false);
+      }
+      //  .then((res) => {
+      //     setWeather(
+      //       res.data.list
+      // .filter(
+      //   (index) =>
+      //     (index === 2) |
+      //     (index === 10) |
+      //     (index === 18) |
+      //     (index === 26) |
+      //     (index === 34)
+      // )
+      // .map((filteredData) => {
+      //   return filteredData;
+      //   // console.log(filteredData);
+      // })
+      // );
+
+      // console.log(weather);
+      // });
+    }
+    fetchData();
     console.log("useEffect has been called");
   }, []);
 
   return (
     <Row>
+      {isLoading ? console.log("Loading") : console.log(weather)}
       <Col>
         <div
           className="mb-1 fontStyle"
