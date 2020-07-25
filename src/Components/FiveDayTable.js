@@ -38,7 +38,7 @@ function FiveDayTable() {
     async function fetchData() {
       setIsLoading(true);
       try {
-        const fetcher = await API.getFiveDayForecast("Los Angeles");
+        const fetcher = await API.getWeather("Los Angeles");
         const response = await fetcher;
         // const response = await fetcher.data.list.filter(
         //   (rawData, index) =>
