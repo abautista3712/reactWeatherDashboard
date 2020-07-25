@@ -83,13 +83,33 @@ function FiveDayTable() {
               className="fontStyle"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
             >
-              <tr>
+              {/* <tr>
                 <th>Date</th>
                 <th>Temperature</th>
                 <th>Condition</th>
                 <th>Humidity</th>
                 <th>Wind</th>
-                {/* <th>UV Index</th> */}
+                <th>UV Index</th>
+              </tr> */}
+              <tr>
+                <th></th>
+                <th>{moment().add(1, "days").format("dddd")}</th>
+                <th>{moment().add(2, "days").format("dddd")}</th>
+                <th>{moment().add(3, "days").format("dddd")}</th>
+                <th>{moment().add(4, "days").format("dddd")}</th>
+                <th>{moment().add(5, "days").format("dddd")}</th>
+                <th>{moment().add(6, "days").format("dddd")}</th>
+                <th>{moment().add(7, "days").format("dddd")}</th>
+              </tr>
+              <tr>
+                <th></th>
+                <th>{moment().add(1, "days").format("M/DD")}</th>
+                <th>{moment().add(2, "days").format("M/DD")}</th>
+                <th>{moment().add(3, "days").format("M/DD")}</th>
+                <th>{moment().add(4, "days").format("M/DD")}</th>
+                <th>{moment().add(5, "days").format("M/DD")}</th>
+                <th>{moment().add(6, "days").format("M/DD")}</th>
+                <th>{moment().add(7, "days").format("M/DD")}</th>
               </tr>
             </thead>
             <tbody
@@ -98,15 +118,14 @@ function FiveDayTable() {
             >
               {/* Tomorrow */}
               <tr>
-                <td>{moment().add(1, "days").format("l")}</td>
                 {/* <td> */}
-                {weather.map((filteredData) => {
+                {/* {weather.map((filteredData) => {
                   return (
                     console.log(filteredData),
                     (<td>{filteredData.main.temp}°</td>)
                   );
                   // <td>{filteredData.main</td>;
-                })}
+                })} */}
 
                 {/* </td> */}
                 <td>{condition}</td>
