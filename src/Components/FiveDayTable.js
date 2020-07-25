@@ -100,15 +100,12 @@ function FiveDayTable() {
                 <td>Condition</td>
                 {weather.map((filteredData) => {
                   return (
-                    console.log(filteredData),
-                    (
-                      <td>
-                        <img
-                          src={`http://openweathermap.org/img/w/${filteredData.weather[0].icon}.png`}
-                          alt="Weather Icon"
-                        />
-                      </td>
-                    )
+                    <td>
+                      <img
+                        src={`http://openweathermap.org/img/w/${filteredData.weather[0].icon}.png`}
+                        alt="Weather Icon"
+                      />
+                    </td>
                   );
                 })}
               </tr>
@@ -125,6 +122,12 @@ function FiveDayTable() {
               </tr>
               <tr>
                 <td>Humidity</td>
+                {weather.map((filteredData) => {
+                  return (
+                    console.log(filteredData),
+                    (<td>{filteredData.humidity}%</td>)
+                  );
+                })}
               </tr>
               <tr>
                 <td>Wind</td>
