@@ -9,26 +9,40 @@ import "./CurrentWeather.css";
 function CurrentWeather() {
   const [city, setCity] = useState();
   const [temperature, setTemperature] = useState();
-  const [weather, setWeather] = useState();
+  const [condition, setCondition] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
   const [windSpeed, setWindSpeed] = useState();
   const [windDirection, setWindDirection] = useState();
   const [humidity, setHumidity] = useState();
   const [pressure, setPressure] = useState();
-  // const [UV, setUV] = useState();
+  const [UV, setUV] = useState();
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    API.getWeather("Los Angeles").then((res) => {
-      // console.log(res);
-      // setCity(res.data.name);
-      // setTemperature(((res.data.main.temp - 273.15) * (9 / 5) + 32).toFixed(1));
-      // setWeather(res.data.weather[0].main);
-      // setWeatherIcon(res.data.weather[0].icon);
-      // setWindSpeed(res.data.wind.speed);
-      // setWindDirection(res.data.wind.deg);
-      // setHumidity(res.data.main.humidity);
-      // setPressure(res.data.main.pressure);
-    });
+    async function fetchData() {
+      setIsLoading(true);
+      try {
+        const fetchCity = await API.getCity("Los Angeles");
+        const responseCity = await fetchCity.data.city.name;
+        setCity(responseCity);
+        const fetchWeather = await API.getWeather("Los Angeles");
+        const responseWeather = await fetchWeather.data.current;
+        setTemperature(responseWeather.temp.toFixed(1));
+        setCondition(responseWeather.weather[0].main);
+        setWeatherIcon(responseWeather.weather[0].icon);
+        setWindSpeed(responseWeather.wind_speed);
+        setWindDirection(responseWeather.wind_deg);
+        setHumidity(responseWeather.humidity);
+        setPressure(responseWeather.pressure);
+        setUV(responseWeather.uvi);
+      } catch (err) {
+        console.log("CurrentWeather.js API Error");
+      } finally {
+        console.log("CurrentWeather loaded!");
+        setIsLoading(false);
+      }
+    }
+    fetchData();
   }, []);
 
   function getDirection(angle) {
@@ -40,45 +54,53 @@ function CurrentWeather() {
 
   return (
     <div className="fontStyle">
-      <SearchCity />
-      <Row className="mt-1">
-        <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
-      </Row>
-      <Row>
-        <CurrentDate />
-      </Row>
-      <Row className="mt-1 mb-0">
-        <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
-          {temperature}°
-        </Col>
-      </Row>
-      <Row className="mt-0 mb-1">
-        <Col style={{ fontSize: 24 }}>
-          {weather}{" "}
-          <img
-            src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
-            alt="Weather Icon"
-          />
-        </Col>
-      </Row>
-      <Row className="mb-4">
-        <Col md={{ span: 2, offset: 3 }}>
-          <Col className="font-weight-bold">Wind</Col>
-          <Col>
-            {windSpeed} m/s {getDirection(windDirection)}
-          </Col>
-        </Col>
-        <Col md={{ span: 2 }}>
-          <Col className="font-weight-bold">Humidity</Col>
-          <Col>{humidity} %</Col>
-        </Col>
-        <Col md={{ span: 2 }}>
-          <Col className="font-weight-bold">Pressure</Col>
-          <Col>{pressure} hPa</Col>
-        </Col>
-        {/* <Col>UV</Col> */}
-        {/* <Col>{UV}</Col> */}
-      </Row>
+      {isLoading ? (
+        console.log("CurrentWeather Loading...")
+      ) : (
+        <div>
+          <SearchCity />
+          <Row className="mt-1">
+            <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
+          </Row>
+          <Row>
+            <CurrentDate />
+          </Row>
+          <Row className="mt-1 mb-0">
+            <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
+              {temperature}°
+            </Col>
+          </Row>
+          <Row className="mt-0 mb-1">
+            <Col style={{ fontSize: 24 }}>
+              {condition}{" "}
+              <img
+                src={`http://openweathermap.org/img/w/${weatherIcon}.png`}
+                alt="Weather Icon"
+              />
+            </Col>
+          </Row>
+          <Row className="mb-4">
+            <Col md={{ span: 2, offset: 3 }}>
+              <Col className="font-weight-bold">Wind</Col>
+              <Col>
+                {windSpeed} mph {getDirection(windDirection)}
+              </Col>
+            </Col>
+            <Col md={{ span: 2 }}>
+              <Col className="font-weight-bold">Humidity</Col>
+              <Col>{humidity} %</Col>
+            </Col>
+            <Col md={{ span: 2 }}>
+              <Col className="font-weight-bold">Pressure</Col>
+              <Col>{pressure} hPa</Col>
+            </Col>
+            <Col md={{ span: 2 }}>
+              <Col className="font-weight-bold">UV Index</Col>
+              <Col>{UV}</Col>
+            </Col>
+          </Row>
+        </div>
+      )}
     </div>
   );
 }
