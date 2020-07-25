@@ -58,18 +58,23 @@ function CurrentWeather() {
         console.log("CurrentWeather Loading...")
       ) : (
         <div>
+          {/* Search Bar */}
           <SearchCity />
+          {/* City */}
           <Row className="mt-1">
             <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
           </Row>
+          {/* Date */}
           <Row>
             <CurrentDate />
           </Row>
+          {/* Temperature */}
           <Row className="mt-1 mb-0">
             <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
               {temperature}°
             </Col>
           </Row>
+          {/* Weather Condition */}
           <Row className="mt-0 mb-1">
             <Col style={{ fontSize: 24 }}>
               {condition}{" "}
@@ -79,21 +84,25 @@ function CurrentWeather() {
               />
             </Col>
           </Row>
+          {/* Wind Speed and Direction */}
           <Row className="mb-4">
-            <Col md={{ span: 2, offset: 3 }}>
+            <Col md={{ span: 2, offset: 2 }}>
               <Col className="font-weight-bold">Wind</Col>
               <Col>
                 {windSpeed} mph {getDirection(windDirection)}
               </Col>
             </Col>
+            {/* Humidity */}
             <Col md={{ span: 2 }}>
               <Col className="font-weight-bold">Humidity</Col>
               <Col>{humidity} %</Col>
             </Col>
+            {/* Pressure */}
             <Col md={{ span: 2 }}>
               <Col className="font-weight-bold">Pressure</Col>
               <Col>{pressure} hPa</Col>
             </Col>
+            {/* UV Index */}
             <Col md={{ span: 2 }}>
               <Col className="font-weight-bold">UV Index</Col>
               <Col>{UV}</Col>
