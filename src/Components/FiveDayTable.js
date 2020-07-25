@@ -97,16 +97,21 @@ function FiveDayTable() {
               style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
             >
               <tr>
-                <td>Temperature</td>
-                {/* {weather.map((filteredData) => {
-                  return (
-                    console.log(filteredData),
-                    (<td>{filteredData.main.temp}°</td>)
-                  );
-                })} */}
+                <td>Condition</td>
               </tr>
               <tr>
-                <td>Condition</td>
+                <td>Temperature</td>
+                {weather.map((filteredData) => {
+                  return (
+                    console.log(filteredData),
+                    (
+                      <td>
+                        {filteredData.temp.min.toFixed(0)}°/
+                        {filteredData.temp.max.toFixed(0)}°
+                      </td>
+                    )
+                  );
+                })}
               </tr>
               <tr>
                 <td>Humidity</td>
