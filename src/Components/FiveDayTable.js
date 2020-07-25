@@ -98,18 +98,28 @@ function FiveDayTable() {
             >
               <tr>
                 <td>Condition</td>
-              </tr>
-              <tr>
-                <td>Temperature</td>
                 {weather.map((filteredData) => {
                   return (
                     console.log(filteredData),
                     (
                       <td>
-                        {filteredData.temp.min.toFixed(0)}°/
-                        {filteredData.temp.max.toFixed(0)}°
+                        <img
+                          src={`http://openweathermap.org/img/w/${filteredData.weather[0].icon}.png`}
+                          alt="Weather Icon"
+                        />
                       </td>
                     )
+                  );
+                })}
+              </tr>
+              <tr>
+                <td>Temperature</td>
+                {weather.map((filteredData) => {
+                  return (
+                    <td>
+                      {filteredData.temp.min.toFixed(0)}°/
+                      {filteredData.temp.max.toFixed(0)}°
+                    </td>
                   );
                 })}
               </tr>
