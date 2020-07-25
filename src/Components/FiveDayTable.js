@@ -39,15 +39,19 @@ function FiveDayTable() {
       setIsLoading(true);
       try {
         const fetcher = await API.getFiveDayForecast("Los Angeles");
-        const response = await fetcher.data.list.filter(
-          (rawData, index) =>
-            (index === 2) |
-            (index === 10) |
-            (index === 18) |
-            (index === 26) |
-            (index === 34)
-        );
-        setWeather(response);
+        const response = await fetcher;
+        // const response = await fetcher.data.list.filter(
+        //   (rawData, index) =>
+        //     (index === 2) |
+        //     (index === 10) |
+        //     (index === 18) |
+        //     (index === 26) |
+        //     (index === 34) |
+        //     (index === 42) |
+        //     (index === 50)
+        // );
+        // setWeather(response);
+        console.log(response);
       } catch (err) {
         console.log("Error");
       } finally {
@@ -110,12 +114,12 @@ function FiveDayTable() {
             >
               <tr>
                 <td>Temperature</td>
-                {weather.map((filteredData) => {
+                {/* {weather.map((filteredData) => {
                   return (
                     console.log(filteredData),
                     (<td>{filteredData.main.temp}°</td>)
                   );
-                })}
+                })} */}
               </tr>
               <tr>
                 <td>Condition</td>
