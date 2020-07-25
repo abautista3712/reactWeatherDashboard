@@ -18,16 +18,16 @@ function CurrentWeather() {
   // const [UV, setUV] = useState();
 
   useEffect(() => {
-    API.getCurrentWeather("Los Angeles").then((res) => {
+    API.getWeather("Los Angeles").then((res) => {
       // console.log(res);
-      setCity(res.data.name);
-      setTemperature(((res.data.main.temp - 273.15) * (9 / 5) + 32).toFixed(1));
-      setWeather(res.data.weather[0].main);
-      setWeatherIcon(res.data.weather[0].icon);
-      setWindSpeed(res.data.wind.speed);
-      setWindDirection(res.data.wind.deg);
-      setHumidity(res.data.main.humidity);
-      setPressure(res.data.main.pressure);
+      // setCity(res.data.name);
+      // setTemperature(((res.data.main.temp - 273.15) * (9 / 5) + 32).toFixed(1));
+      // setWeather(res.data.weather[0].main);
+      // setWeatherIcon(res.data.weather[0].icon);
+      // setWindSpeed(res.data.wind.speed);
+      // setWindDirection(res.data.wind.deg);
+      // setHumidity(res.data.main.humidity);
+      // setPressure(res.data.main.pressure);
     });
   }, []);
 
