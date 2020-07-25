@@ -39,18 +39,10 @@ function FiveDayTable() {
       setIsLoading(true);
       try {
         const fetchWeather = await API.getWeather("Los Angeles");
-        const responseWeather = await fetchWeather;
-        // const response = await fetcher.data.list.filter(
-        //   (rawData, index) =>
-        //     (index === 2) |
-        //     (index === 10) |
-        //     (index === 18) |
-        //     (index === 26) |
-        //     (index === 34) |
-        //     (index === 42) |
-        //     (index === 50)
-        // );
-        // setWeather(response);
+        const responseWeather = await fetchWeather.data.daily.filter(
+          (rawData, index) => index > 0
+        );
+        setWeather(responseWeather);
         console.log(responseWeather);
       } catch (err) {
         console.log("FiveDayTable.js API Error");
@@ -58,14 +50,6 @@ function FiveDayTable() {
         console.log("FiveDayTable loaded!");
         setIsLoading(false);
       }
-      // .map((filteredData) => {
-      //   return filteredData;
-      //   // console.log(filteredData);
-      // })
-      // );
-
-      // console.log(weather);
-      // });
     }
     fetchData();
   }, []);
@@ -132,54 +116,6 @@ function FiveDayTable() {
               </tr>
               <tr>
                 <td>UV Index</td>
-              </tr>
-              {/* Tomorrow */}
-              <tr>
-                {/* <td> */}
-
-                {/* </td> */}
-                <td>{condition}</td>
-                <td>{humidity} %</td>
-                <td>
-                  {wind} m/s {windDirection}
-                </td>
-                {/* <td>{UV}</td> */}
-              </tr>
-              {/* +2 Days */}
-              <tr>
-                <td>{moment().add(2, "days").format("l")}</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                {/* <td>UV</td> */}
-              </tr>
-              {/* +3 Days */}
-              <tr>
-                <td>{moment().add(3, "days").format("l")}</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                {/* <td>UV</td> */}
-              </tr>
-              {/* +4 Days */}
-              <tr>
-                <td>{moment().add(4, "days").format("l")}</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                {/* <td>UV</td> */}
-              </tr>
-              {/* +5 Days */}
-              <tr>
-                <td>{moment().add(5, "days").format("l")}</td>
-                <td>2</td>
-                <td>3</td>
-                <td>4</td>
-                <td>5</td>
-                {/* <td>UV</td> */}
               </tr>
             </tbody>
           </Table>
