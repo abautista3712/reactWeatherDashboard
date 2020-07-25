@@ -110,13 +110,12 @@ function FiveDayTable() {
             >
               <tr>
                 <td>Temperature</td>
-                {/* {weather.map((filteredData) => {
+                {weather.map((filteredData) => {
                   return (
                     console.log(filteredData),
                     (<td>{filteredData.main.temp}°</td>)
                   );
-                  // <td>{filteredData.main</td>;
-                })} */}
+                })}
               </tr>
               <tr>
                 <td>Condition</td>
