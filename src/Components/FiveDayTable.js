@@ -38,8 +38,8 @@ function FiveDayTable() {
     async function fetchData() {
       setIsLoading(true);
       try {
-        const fetcher = await API.getWeather("Los Angeles");
-        const response = await fetcher;
+        const fetchWeather = await API.getWeather("Los Angeles");
+        const responseWeather = await fetchWeather;
         // const response = await fetcher.data.list.filter(
         //   (rawData, index) =>
         //     (index === 2) |
@@ -51,9 +51,9 @@ function FiveDayTable() {
         //     (index === 50)
         // );
         // setWeather(response);
-        // console.log(response);
+        console.log(responseWeather);
       } catch (err) {
-        console.log("Error");
+        console.log("FiveDayTable.js API Error");
       } finally {
         console.log("FiveDayTable loaded!");
         setIsLoading(false);
