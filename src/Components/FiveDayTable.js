@@ -51,10 +51,11 @@ function FiveDayTable() {
         //     (index === 50)
         // );
         // setWeather(response);
-        console.log(response);
+        // console.log(response);
       } catch (err) {
         console.log("Error");
       } finally {
+        console.log("FiveDayTable loaded!");
         setIsLoading(false);
       }
       // .map((filteredData) => {
@@ -67,13 +68,12 @@ function FiveDayTable() {
       // });
     }
     fetchData();
-    console.log("useEffect has been called");
   }, []);
 
   return (
     <Row>
       {isLoading ? (
-        console.log("Loading")
+        console.log("FiveDatTable Loading...")
       ) : (
         <Col>
           <div
