@@ -83,14 +83,6 @@ function FiveDayTable() {
               className="fontStyle"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.5)" }}
             >
-              {/* <tr>
-                <th>Date</th>
-                <th>Temperature</th>
-                <th>Condition</th>
-                <th>Humidity</th>
-                <th>Wind</th>
-                <th>UV Index</th>
-              </tr> */}
               <tr>
                 <th></th>
                 <th>{moment().add(1, "days").format("dddd")}</th>
@@ -116,9 +108,8 @@ function FiveDayTable() {
               className="fontStyle"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
             >
-              {/* Tomorrow */}
               <tr>
-                {/* <td> */}
+                <td>Temperature</td>
                 {/* {weather.map((filteredData) => {
                   return (
                     console.log(filteredData),
@@ -126,6 +117,22 @@ function FiveDayTable() {
                   );
                   // <td>{filteredData.main</td>;
                 })} */}
+              </tr>
+              <tr>
+                <td>Condition</td>
+              </tr>
+              <tr>
+                <td>Humidity</td>
+              </tr>
+              <tr>
+                <td>Wind</td>
+              </tr>
+              <tr>
+                <td>UV Index</td>
+              </tr>
+              {/* Tomorrow */}
+              <tr>
+                {/* <td> */}
 
                 {/* </td> */}
                 <td>{condition}</td>
