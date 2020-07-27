@@ -123,14 +123,17 @@ function FiveDayTable() {
               <tr>
                 <td>Humidity</td>
                 {weather.map((filteredData) => {
-                  return (
-                    console.log(filteredData),
-                    (<td>{filteredData.humidity}%</td>)
-                  );
+                  return <td>{filteredData.humidity}%</td>;
                 })}
               </tr>
               <tr>
-                <td>Wind</td>
+                <td>Wind (MPH)</td>
+                {weather.map((filteredData) => {
+                  return (
+                    console.log(filteredData),
+                    (<td>{filteredData.wind_speed.toFixed(1)}</td>)
+                  );
+                })}
               </tr>
               <tr>
                 <td>UV Index</td>
