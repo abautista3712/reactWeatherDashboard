@@ -110,7 +110,7 @@ function FiveDayTable() {
                 })}
               </tr>
               <tr>
-                <td>Temperature</td>
+                <td>Temperature (°F)</td>
                 {weather.map((filteredData) => {
                   return (
                     <td>
