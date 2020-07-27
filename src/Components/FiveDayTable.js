@@ -137,18 +137,20 @@ function FiveDayTable() {
                 <td>Wind (mph)</td>
                 {weather.map((filteredData) => {
                   return (
-                    console.log(filteredData),
-                    (
-                      <td>
-                        {filteredData.wind_speed.toFixed(1)}{" "}
-                        {getDirection(filteredData.wind_deg)}
-                      </td>
-                    )
+                    <td>
+                      {filteredData.wind_speed}{" "}
+                      {getDirection(filteredData.wind_deg)}
+                    </td>
                   );
                 })}
               </tr>
               <tr>
                 <td>UV Index</td>
+                {weather.map((filteredData) => {
+                  return (
+                    console.log(filteredData), (<td>{filteredData.uvi}</td>)
+                  );
+                })}
               </tr>
             </tbody>
           </Table>
