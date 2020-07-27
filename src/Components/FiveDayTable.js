@@ -61,6 +61,9 @@ function FiveDayTable() {
     ];
   }
 
+  const daysOfWeek = [1, 2, 3, 4, 5, 6, 7];
+  const dateFormat = ["dddd", "M/DD"];
+
   return (
     <Row>
       {isLoading ? (
@@ -80,23 +83,15 @@ function FiveDayTable() {
             >
               <tr>
                 <th></th>
-                <th>{moment().add(1, "days").format("dddd")}</th>
-                <th>{moment().add(2, "days").format("dddd")}</th>
-                <th>{moment().add(3, "days").format("dddd")}</th>
-                <th>{moment().add(4, "days").format("dddd")}</th>
-                <th>{moment().add(5, "days").format("dddd")}</th>
-                <th>{moment().add(6, "days").format("dddd")}</th>
-                <th>{moment().add(7, "days").format("dddd")}</th>
+                {daysOfWeek.map((day) => {
+                  return <th>{moment().add(day, "days").format("dddd")}</th>;
+                })}
               </tr>
               <tr>
                 <th></th>
-                <th>{moment().add(1, "days").format("M/DD")}</th>
-                <th>{moment().add(2, "days").format("M/DD")}</th>
-                <th>{moment().add(3, "days").format("M/DD")}</th>
-                <th>{moment().add(4, "days").format("M/DD")}</th>
-                <th>{moment().add(5, "days").format("M/DD")}</th>
-                <th>{moment().add(6, "days").format("M/DD")}</th>
-                <th>{moment().add(7, "days").format("M/DD")}</th>
+                {daysOfWeek.map((day) => {
+                  return <th>{moment().add(day, "days").format("M/DD")}</th>;
+                })}
               </tr>
             </thead>
             <tbody
@@ -104,13 +99,14 @@ function FiveDayTable() {
               style={{ backgroundColor: "rgba(0, 0, 0, 0.3)" }}
             >
               <tr>
-                <td>Condition</td>
+                <td className="my-auto py-auto">Condition</td>
                 {weather.map((filteredData) => {
                   return (
                     <td>
                       <img
                         src={`http://openweathermap.org/img/w/${filteredData.weather[0].icon}.png`}
                         alt="Weather Icon"
+                        style={{ height: "100%" }}
                       />
                     </td>
                   );
