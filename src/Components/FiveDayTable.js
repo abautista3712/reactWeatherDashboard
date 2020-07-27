@@ -128,7 +128,7 @@ function FiveDayTable() {
                 })}
               </tr>
               <tr>
-                <td>Humidity</td>
+                <td>Humidity (%)</td>
                 {weather.map((filteredData) => {
                   return <td>{filteredData.humidity}%</td>;
                 })}
