@@ -54,6 +54,13 @@ function FiveDayTable() {
     fetchData();
   }, []);
 
+  function getDirection(angle) {
+    const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
+    return directions[
+      Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8
+    ];
+  }
+
   return (
     <Row>
       {isLoading ? (
@@ -131,7 +138,12 @@ function FiveDayTable() {
                 {weather.map((filteredData) => {
                   return (
                     console.log(filteredData),
-                    (<td>{filteredData.wind_speed.toFixed(1)}</td>)
+                    (
+                      <td>
+                        {filteredData.wind_speed.toFixed(1)}{" "}
+                        {getDirection(filteredData.wind_deg)}
+                      </td>
+                    )
                   );
                 })}
               </tr>
