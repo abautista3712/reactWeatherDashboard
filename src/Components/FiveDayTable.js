@@ -127,7 +127,7 @@ function FiveDayTable() {
                 })}
               </tr>
               <tr>
-                <td>Wind (MPH)</td>
+                <td>Wind (mph)</td>
                 {weather.map((filteredData) => {
                   return (
                     console.log(filteredData),
