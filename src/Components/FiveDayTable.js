@@ -7,33 +7,9 @@ import moment from "moment";
 import "./FiveDayTable.css";
 
 function FiveDayTable() {
-  const [temperature, setTemperature] = useState();
-  const [condition, setCondition] = useState();
-  const [humidity, setHumidity] = useState();
-  const [wind, setWind] = useState();
-  const [windDirection, setWindDirection] = useState();
   const [isLoading, setIsLoading] = useState(true);
   const [weather, setWeather] = useState({ weather: [] });
-  // const [UV, setUV] = useState();
 
-  // useEffect(() => {
-  //   // API.getUV().then((res) => {
-  //   //   console.log(res);
-  //   //   setUV(res.data[0].value);
-  //   // });
-  //   API.getFiveDayForecast("Los Angeles").then((res) => {
-  //     // console.log(res);
-  //     setTemperature(res.data.list[2].main.temp);
-  //     setCondition(res.data.list[2].weather[0].main);
-  //     setHumidity(res.data.list[2].main.humidity);
-  //     setWind(res.data.list[2].wind.speed);
-  //     setWindDirection(res.data.list[2].wind.deg);
-  //     // setWeather(res.data.list);
-  //   });
-  //   // console.log(weather);
-  // }, []);
-
-  // let noonArr = [2, 10, 18, 26, 34];
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
@@ -62,7 +38,6 @@ function FiveDayTable() {
   }
 
   const daysOfWeek = [1, 2, 3, 4, 5, 6, 7];
-  const dateFormat = ["dddd", "M/DD"];
 
   return (
     <Row>
