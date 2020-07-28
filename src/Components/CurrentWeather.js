@@ -6,9 +6,11 @@ import SearchCity from "./SearchCity";
 import CurrentDate from "./CurrentDate";
 import "./CurrentWeather.css";
 
-function CurrentWeather() {
+function CurrentWeather(props) {
   const [city, setCity] = useState();
   const [temperature, setTemperature] = useState();
+  const [minTemp, setMinTemp] = useState();
+  const [maxTemp, setMaxTemp] = useState();
   const [condition, setCondition] = useState();
   const [weatherIcon, setWeatherIcon] = useState();
   const [windSpeed, setWindSpeed] = useState();
@@ -35,6 +37,10 @@ function CurrentWeather() {
         setHumidity(responseWeather.humidity);
         setPressure(responseWeather.pressure);
         setUV(responseWeather.uvi);
+        const responseTempMinMax = await fetchWeather.data.daily[0].temp;
+        console.log(responseTempMinMax);
+        setMinTemp(responseTempMinMax.min.toFixed(1));
+        setMaxTemp(responseTempMinMax.max.toFixed(1));
       } catch (err) {
         console.log("CurrentWeather.js API Error");
       } finally {
@@ -59,7 +65,7 @@ function CurrentWeather() {
       ) : (
         <div>
           {/* Search Bar */}
-          <SearchCity />
+          <SearchCity greeting="Welcome to React" />
           {/* City */}
           <Row className="mt-1">
             <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
@@ -74,6 +80,16 @@ function CurrentWeather() {
               {temperature}°
             </Col>
           </Row>
+          <Row style={{ textAlign: "center" }}>
+            <Col md={{ span: 3, offset: 3 }}>
+              <Col className="font-weight-bold">Low</Col>
+              <Col>{minTemp}°</Col>
+            </Col>
+            <Col md={{ span: 3 }}>
+              <Col className="font-weight-bold">High</Col>
+              <Col>{maxTemp}°</Col>
+            </Col>
+          </Row>
           {/* Weather Condition */}
           <Row className="mt-0 mb-1">
             <Col style={{ fontSize: 24 }}>
@@ -84,6 +100,7 @@ function CurrentWeather() {
               />
             </Col>
           </Row>
+
           {/* Wind Speed and Direction */}
           <Row className="mb-4">
             <Col md={{ span: 2, offset: 2 }}>
