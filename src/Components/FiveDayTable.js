@@ -19,7 +19,6 @@ function FiveDayTable() {
           (rawData, index) => index > 0
         );
         setWeather(responseWeather);
-        console.log(responseWeather);
       } catch (err) {
         console.log("FiveDayTable.js API Error");
       } finally {
@@ -118,9 +117,7 @@ function FiveDayTable() {
               <tr>
                 <td>UV Index</td>
                 {weather.map((filteredData) => {
-                  return (
-                    console.log(filteredData), (<td>{filteredData.uvi}</td>)
-                  );
+                  return <td>{filteredData.uvi}</td>;
                 })}
               </tr>
             </tbody>
