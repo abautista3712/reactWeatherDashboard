@@ -7,6 +7,7 @@ import FormControl from "react-bootstrap/FormControl";
 function SearchCity(props) {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const handleChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
@@ -19,9 +20,13 @@ function SearchCity(props) {
   //   setSearchResults(results);
   // }, [searchTerm]);
 
+  // const Greeting = (props) => <h1>{props.greeting}</h1>;
+  // const greeting = "Welcome to React!";
+
   return (
     <form>
       <Row>
+        {/* <Greeting greeting={greeting} /> */}
         <Col className="pt-1 px-1">
           <InputGroup>
             <InputGroup.Prepend>
