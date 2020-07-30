@@ -76,19 +76,20 @@ function CurrentWeather(props) {
           </Row>
           {/* Temperature */}
           <Row className="mt-1 mb-0">
-            <Col style={{ lineHeight: "100%", fontSize: "90px" }}>
+            <Col
+              md={{ span: 3, offset: 4 }}
+              style={{ lineHeight: "100%", fontSize: "90px" }}
+            >
               {temperature}°
             </Col>
-          </Row>
-          <Row style={{ textAlign: "center" }}>
-            <Col md={{ span: 3, offset: 3 }}>
-              <Col className="font-weight-bold">Low</Col>
-              <Col>{minTemp}°</Col>
-            </Col>
-            <Col md={{ span: 3 }}>
-              <Col className="font-weight-bold">High</Col>
-              <Col>{maxTemp}°</Col>
-            </Col>
+            <Row style={{ textAlign: "left" }}>
+              <Col md={12} className="my-auto px-0">
+                Low: {minTemp}°
+              </Col>
+              <Col md={12} className="my-auto px-0">
+                High: {maxTemp}°
+              </Col>
+            </Row>
           </Row>
           {/* Weather Condition */}
           <Row className="mt-0 mb-1">
