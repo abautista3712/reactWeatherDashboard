@@ -7,7 +7,15 @@ import FiveDayTable from "./Components/FiveDayTable";
 // import logo from "./logo.svg";
 import "./App.css";
 
-const clouds = "./assets/images/clouds.jpg";
+const clearSky = "";
+const fewClouds = "./assets/images/fewClouds.jpg";
+const scatteredClouds = "./assets/images/scatteredClouds.jpg";
+const brokenClouds = "./assets/images/brokenClouds.jpg";
+const showerRain = "";
+const rain = "";
+const thunderstorm = "";
+const snow = "";
+const mist = "";
 
 function App() {
   return (
@@ -16,7 +24,7 @@ function App() {
       style={{
         minHeight: "100vh",
         maxHeight: "100%",
-        backgroundImage: `url(${clouds})`,
+        backgroundImage: `url(${fewClouds})`,
         backgroundSize: "cover",
       }}
       fluid
