@@ -1,30 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
+import API from "../utils/API";
 
 function SearchCity(props) {
   const [searchTerm, setSearchTerm] = useState("");
-  const [searchResults] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [searchResults, setSearchResults] = useState();
   const handleChange = (event) => {
     const { value } = event.target;
     setSearchTerm(value);
   };
+  const [isLoading, setIsLoading] = useState(false);
+  const [test, setTest] = useState(false);
 
-  // useEffect(() => {
-  //   const results = people.filter((person) =>
-  //     person.toLowerCase().includes(searchTerm)
-  //   );
-  //   setSearchResults(results);
-  // }, [searchTerm]);
-
-  // const Greeting = (props) => <h1>{props.greeting}</h1>;
-  // const greeting = "Welcome to React!";
+  // High level:
+  // 1) Take search query result and pass it to API
+  useEffect(() => {
+    console.log(searchTerm);
+    async function fetchData() {
+      try {
+        const fetch = await API.getWeather(searchTerm);
+        const res = await fetch.data;
+        if (res == undefined) {
+          return;
+        } else {
+          setSearchResults(res);
+          console.log("fetchData() Success");
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    fetchData();
+  }, [searchTerm]);
 
   return (
     <form>
+      {/* {
+        (searchResults ? console.log(searchResults) : console.log(searchTerm),
+        console.log(searchResults),
+        console.log("searchResults Loading"))
+      } */}
+      <h1>
+        {searchTerm}
+        {test.testKey}
+        {props.test}
+      </h1>
       <Row>
         {/* <Greeting greeting={greeting} /> */}
         <Col className="pt-1 px-1">
@@ -42,11 +65,11 @@ function SearchCity(props) {
               style={{ boxShadow: "none" }}
             />
           </InputGroup>
-          <ul>
+          {/* <ul>
             {searchResults.map((item) => (
               <li>{item}</li>
             ))}
-          </ul>
+          </ul> */}
         </Col>
       </Row>
     </form>
