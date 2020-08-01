@@ -24,13 +24,13 @@ function App() {
       style={{
         minHeight: "100vh",
         maxHeight: "100%",
-        backgroundImage: `url(${fewClouds})`,
+        backgroundImage: `url(${scatteredClouds})`,
         backgroundSize: "cover",
       }}
       fluid
     >
       <CurrentWeather />
-      <FiveDayTable />
+      {/* <FiveDayTable /> */}
     </Container>
   );
 }

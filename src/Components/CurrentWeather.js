@@ -20,36 +20,36 @@ function CurrentWeather(props) {
   const [UV, setUV] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      try {
-        const fetchCity = await API.getCity("Los Angeles");
-        const responseCity = await fetchCity.data.city.name;
-        setCity(responseCity);
-        const fetchWeather = await API.getWeather("Los Angeles");
-        const responseWeather = await fetchWeather.data.current;
-        setTemperature(responseWeather.temp.toFixed(1));
-        setCondition(responseWeather.weather[0].main);
-        setWeatherIcon(responseWeather.weather[0].icon);
-        setWindSpeed(responseWeather.wind_speed);
-        setWindDirection(responseWeather.wind_deg);
-        setHumidity(responseWeather.humidity);
-        setPressure(responseWeather.pressure);
-        setUV(responseWeather.uvi);
-        const responseTempMinMax = await fetchWeather.data.daily[0].temp;
-        console.log(responseTempMinMax);
-        setMinTemp(responseTempMinMax.min.toFixed(1));
-        setMaxTemp(responseTempMinMax.max.toFixed(1));
-      } catch (err) {
-        console.log("CurrentWeather.js API Error");
-      } finally {
-        console.log("CurrentWeather loaded!");
-        setIsLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     setIsLoading(true);
+  //     try {
+  //       const fetchCity = await API.getCity("Los Angeles");
+  //       const responseCity = await fetchCity.data.city.name;
+  //       setCity(responseCity);
+  //       const fetchWeather = await API.getWeather("Los Angeles");
+  //       const responseWeather = await fetchWeather.data.current;
+  //       setTemperature(responseWeather.temp.toFixed(1));
+  //       setCondition(responseWeather.weather[0].main);
+  //       setWeatherIcon(responseWeather.weather[0].icon);
+  //       setWindSpeed(responseWeather.wind_speed);
+  //       setWindDirection(responseWeather.wind_deg);
+  //       setHumidity(responseWeather.humidity);
+  //       setPressure(responseWeather.pressure);
+  //       setUV(responseWeather.uvi);
+  //       const responseTempMinMax = await fetchWeather.data.daily[0].temp;
+  //       // console.log(responseTempMinMax);
+  //       setMinTemp(responseTempMinMax.min.toFixed(1));
+  //       setMaxTemp(responseTempMinMax.max.toFixed(1));
+  //     } catch (err) {
+  //       console.log("CurrentWeather.js API Error");
+  //     } finally {
+  //       console.log("CurrentWeather loaded!");
+  //       setIsLoading(false);
+  //     }
+  //   }
+  //   fetchData();
+  // }, []);
 
   function getDirection(angle) {
     const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
@@ -65,7 +65,7 @@ function CurrentWeather(props) {
       ) : (
         <div>
           {/* Search Bar */}
-          <SearchCity greeting="Welcome to React" />
+          <SearchCity test="from CurrentWeather" />
           {/* City */}
           <Row className="mt-1">
             <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
