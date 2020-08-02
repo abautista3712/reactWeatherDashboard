@@ -26,11 +26,12 @@ function CurrentWeather(props) {
     setQuery(props);
     // async function fetchData() {
     //   setIsLoading(true);
+    //   console.log(props);
     //   try {
-    //     const fetchCity = await API.getCity(`${query}`);
+    //     const fetchCity = await API.getCity(props);
     //     const responseCity = await fetchCity.data.city.name;
     //     setCity(responseCity);
-    //     const fetchWeather = await API.getWeather(`${query}`);
+    //     const fetchWeather = await API.getWeather(props);
     //     const responseWeather = await fetchWeather.data.current;
     //     setTemperature(responseWeather.temp.toFixed(1));
     //     setCondition(responseWeather.weather[0].main);
@@ -70,8 +71,6 @@ function CurrentWeather(props) {
         console.log("CurrentWeather Loading...")
       ) : (
         <div>
-          {/* Search Bar */}
-          {/* <SearchCity test="from CurrentWeather" /> */}
           {/* City */}
           <Row className="mt-1">
             <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>
