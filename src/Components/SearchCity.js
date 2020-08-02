@@ -24,9 +24,7 @@ function SearchCity() {
         } else {
           const fetchCity = await API.getCity(searchTerm);
           const resCity = await fetchCity.data.city.name;
-          console.log(resCity);
           setSearchResults(resCity);
-          // console.log("verifyCity() Success");
         }
       } catch (err) {
         console.log(err);

@@ -30,22 +30,23 @@ function CurrentWeather(props) {
       setIsLoading(true);
       try {
         const fetchWeather = await API.getWeather(city);
-        const responseWeather = await fetchWeather.data.current;
-        setTemperature(responseWeather.temp.toFixed(1));
-        setCondition(responseWeather.weather[0].main);
-        setWeatherIcon(responseWeather.weather[0].icon);
-        setWindSpeed(responseWeather.wind_speed);
-        setWindDirection(responseWeather.wind_deg);
-        setHumidity(responseWeather.humidity);
-        setPressure(responseWeather.pressure);
-        setUV(responseWeather.uvi);
-        const responseTempMinMax = await fetchWeather.data.daily[0].temp;
-        setMinTemp(responseTempMinMax.min.toFixed(1));
-        setMaxTemp(responseTempMinMax.max.toFixed(1));
+        const responseWeather = await fetchWeather.data;
+        const { current } = responseWeather;
+        setTemperature(current.temp.toFixed(1));
+        const { weather } = current;
+        setCondition(weather[0].main);
+        setWeatherIcon(weather[0].icon);
+        setWindSpeed(current.wind_speed);
+        setWindDirection(current.wind_deg);
+        setHumidity(current.humidity);
+        setPressure(current.pressure);
+        setUV(current.uvi);
+        const { daily } = responseWeather;
+        setMinTemp(daily[0].temp.min.toFixed(1));
+        setMaxTemp(daily[0].temp.max.toFixed(1));
       } catch (err) {
         console.log("CurrentWeather.js API Error");
       } finally {
-        // console.log("CurrentWeather loaded!");
         setIsLoading(false);
       }
     }
@@ -61,7 +62,6 @@ function CurrentWeather(props) {
   return (
     <div className="fontStyle">
       {isLoading ? (
-        // console.log("CurrentWeather Loading...")
         <h1>Loading...</h1>
       ) : (
         <div>
