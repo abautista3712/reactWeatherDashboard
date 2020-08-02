@@ -31,7 +31,6 @@ function App() {
       fluid
     >
       <SearchCity />
-      {/* <CurrentWeather /> */}
       {/* <FiveDayTable /> */}
     </Container>
   );

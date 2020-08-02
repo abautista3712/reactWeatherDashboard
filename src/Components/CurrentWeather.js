@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
-// import SearchCity from "./SearchCity";
 import CurrentDate from "./CurrentDate";
 import "./CurrentWeather.css";
 
@@ -21,10 +20,11 @@ function CurrentWeather(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    setCity(props.city);
+    console.log(city);
     async function fetchData() {
       setIsLoading(true);
       try {
+        setCity(props.city);
         const fetchWeather = await API.getWeather(city);
         const responseWeather = await fetchWeather.data.current;
         setTemperature(responseWeather.temp.toFixed(1));
@@ -41,7 +41,7 @@ function CurrentWeather(props) {
       } catch (err) {
         console.log("CurrentWeather.js API Error");
       } finally {
-        console.log("CurrentWeather loaded!");
+        // console.log("CurrentWeather loaded!");
         setIsLoading(false);
       }
     }
@@ -58,7 +58,8 @@ function CurrentWeather(props) {
   return (
     <div className="fontStyle">
       {isLoading ? (
-        console.log("CurrentWeather Loading...")
+        // console.log("CurrentWeather Loading...")
+        <h1>Loading...</h1>
       ) : (
         <div>
           {/* City */}
