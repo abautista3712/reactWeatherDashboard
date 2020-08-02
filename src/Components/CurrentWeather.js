@@ -20,11 +20,15 @@ function CurrentWeather(props) {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    console.log(city);
+    const updateCity = () =>
+      props.city === undefined
+        ? fetchData()
+        : (setCity(props.city), fetchData());
+    updateCity();
+
     async function fetchData() {
       setIsLoading(true);
       try {
-        setCity(props.city);
         const fetchWeather = await API.getWeather(city);
         const responseWeather = await fetchWeather.data.current;
         setTemperature(responseWeather.temp.toFixed(1));
@@ -45,7 +49,6 @@ function CurrentWeather(props) {
         setIsLoading(false);
       }
     }
-    fetchData();
   }, [props.city]);
 
   function getDirection(angle) {

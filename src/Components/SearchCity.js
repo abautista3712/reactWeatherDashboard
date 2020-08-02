@@ -19,7 +19,7 @@ function SearchCity() {
       try {
         const fetchWeather = await API.getWeather(searchTerm);
         const resWeather = await fetchWeather.data;
-        if (resWeather == undefined) {
+        if (resWeather === undefined) {
           return;
         } else {
           const fetchCity = await API.getCity(searchTerm);
