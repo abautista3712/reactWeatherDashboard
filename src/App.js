@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import "bootstrap/dist/css/bootstrap.min.css";
+import SearchCity from "./Components/SearchCity";
 import CurrentWeather from "./Components/CurrentWeather";
 import FiveDayTable from "./Components/FiveDayTable";
 // import API from "./utils/API";
@@ -29,7 +30,8 @@ function App() {
       }}
       fluid
     >
-      <CurrentWeather />
+      <SearchCity />
+      {/* <CurrentWeather /> */}
       {/* <FiveDayTable /> */}
     </Container>
   );

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
-import SearchCity from "./SearchCity";
+// import SearchCity from "./SearchCity";
 import CurrentDate from "./CurrentDate";
 import "./CurrentWeather.css";
 
@@ -20,38 +20,39 @@ function CurrentWeather(props) {
   const [UV, setUV] = useState();
   const [isLoading, setIsLoading] = useState(false);
 
-  const [query, setQuery] = useState("Los Angeles");
+  const [query, setQuery] = useState(props);
 
   useEffect(() => {
-    async function fetchData() {
-      setIsLoading(true);
-      try {
-        const fetchCity = await API.getCity(`${query}`);
-        const responseCity = await fetchCity.data.city.name;
-        setCity(responseCity);
-        const fetchWeather = await API.getWeather(`${query}`);
-        const responseWeather = await fetchWeather.data.current;
-        setTemperature(responseWeather.temp.toFixed(1));
-        setCondition(responseWeather.weather[0].main);
-        setWeatherIcon(responseWeather.weather[0].icon);
-        setWindSpeed(responseWeather.wind_speed);
-        setWindDirection(responseWeather.wind_deg);
-        setHumidity(responseWeather.humidity);
-        setPressure(responseWeather.pressure);
-        setUV(responseWeather.uvi);
-        const responseTempMinMax = await fetchWeather.data.daily[0].temp;
-        // console.log(responseTempMinMax);
-        setMinTemp(responseTempMinMax.min.toFixed(1));
-        setMaxTemp(responseTempMinMax.max.toFixed(1));
-      } catch (err) {
-        console.log("CurrentWeather.js API Error");
-      } finally {
-        console.log("CurrentWeather loaded!");
-        setIsLoading(false);
-      }
-    }
-    fetchData();
-  }, []);
+    setQuery(props);
+    // async function fetchData() {
+    //   setIsLoading(true);
+    //   try {
+    //     const fetchCity = await API.getCity(`${query}`);
+    //     const responseCity = await fetchCity.data.city.name;
+    //     setCity(responseCity);
+    //     const fetchWeather = await API.getWeather(`${query}`);
+    //     const responseWeather = await fetchWeather.data.current;
+    //     setTemperature(responseWeather.temp.toFixed(1));
+    //     setCondition(responseWeather.weather[0].main);
+    //     setWeatherIcon(responseWeather.weather[0].icon);
+    //     setWindSpeed(responseWeather.wind_speed);
+    //     setWindDirection(responseWeather.wind_deg);
+    //     setHumidity(responseWeather.humidity);
+    //     setPressure(responseWeather.pressure);
+    //     setUV(responseWeather.uvi);
+    //     const responseTempMinMax = await fetchWeather.data.daily[0].temp;
+    //     // console.log(responseTempMinMax);
+    //     setMinTemp(responseTempMinMax.min.toFixed(1));
+    //     setMaxTemp(responseTempMinMax.max.toFixed(1));
+    //   } catch (err) {
+    //     console.log("CurrentWeather.js API Error");
+    //   } finally {
+    //     console.log("CurrentWeather loaded!");
+    //     setIsLoading(false);
+    //   }
+    // }
+    // fetchData();
+  }, [props]);
 
   function getDirection(angle) {
     const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
@@ -60,14 +61,17 @@ function CurrentWeather(props) {
     ];
   }
 
+  // const test = "this is a test" props.test;
+
   return (
     <div className="fontStyle">
+      <h1>{console.log(props)}</h1>
       {isLoading ? (
         console.log("CurrentWeather Loading...")
       ) : (
         <div>
           {/* Search Bar */}
-          <SearchCity test="from CurrentWeather" />
+          {/* <SearchCity test="from CurrentWeather" /> */}
           {/* City */}
           <Row className="mt-1">
             <Col style={{ fontSize: 30, fontWeight: "bold" }}>{city}</Col>

@@ -4,8 +4,9 @@ import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import FormControl from "react-bootstrap/FormControl";
 import API from "../utils/API";
+import CurrentWeather from "./CurrentWeather";
 
-function SearchCity(props) {
+function SearchCity() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState();
   const handleChange = (event) => {
@@ -18,7 +19,6 @@ function SearchCity(props) {
   // High level:
   // 1) Take search query result and pass it to API
   useEffect(() => {
-    console.log(searchTerm);
     async function fetchData() {
       try {
         const fetch = await API.getWeather(searchTerm);
@@ -37,42 +37,47 @@ function SearchCity(props) {
   }, [searchTerm]);
 
   return (
-    <form>
-      {/* {
+    <div>
+      <form>
+        {/* {
         (searchResults ? console.log(searchResults) : console.log(searchTerm),
         console.log(searchResults),
         console.log("searchResults Loading"))
       } */}
-      <h1>
+        <h1>
+          {/* {console.log(searchResults)}
+        {searchResults ? console.log(searchResults) : ""}
         {searchTerm}
         {test.testKey}
-        {props.test}
-      </h1>
-      <Row>
-        {/* <Greeting greeting={greeting} /> */}
-        <Col className="pt-1 px-1">
-          <InputGroup>
-            <InputGroup.Prepend>
-              <InputGroup.Text style={{ backgroundColor: "#fff" }}>
-                <i className="fas fa-search mx-1"></i>
-              </InputGroup.Text>
-            </InputGroup.Prepend>
-            <FormControl
-              type="text"
-              placeholder="Search City"
-              value={searchTerm}
-              onChange={handleChange}
-              style={{ boxShadow: "none" }}
-            />
-          </InputGroup>
-          {/* <ul>
+      {props.test} */}
+        </h1>
+        <Row>
+          {/* <Greeting greeting={greeting} /> */}
+          <Col className="pt-1 px-1">
+            <InputGroup>
+              <InputGroup.Prepend>
+                <InputGroup.Text style={{ backgroundColor: "#fff" }}>
+                  <i className="fas fa-search mx-1"></i>
+                </InputGroup.Text>
+              </InputGroup.Prepend>
+              <FormControl
+                type="text"
+                placeholder="Search City"
+                value={searchTerm}
+                onChange={handleChange}
+                style={{ boxShadow: "none" }}
+              />
+            </InputGroup>
+            {/* <ul>
             {searchResults.map((item) => (
               <li>{item}</li>
-            ))}
-          </ul> */}
-        </Col>
-      </Row>
-    </form>
+              ))}
+            </ul> */}
+          </Col>
+        </Row>
+      </form>
+      <CurrentWeather {...searchResults} />
+    </div>
   );
 }
 
