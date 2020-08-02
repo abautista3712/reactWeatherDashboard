@@ -13,46 +13,31 @@ function SearchCity() {
     const { value } = event.target;
     setSearchTerm(value);
   };
-  const [isLoading, setIsLoading] = useState(false);
-  const [test, setTest] = useState(false);
 
-  // High level:
-  // 1) Take search query result and pass it to API
   useEffect(() => {
-    async function fetchData() {
+    async function verifyCity() {
       try {
-        const fetch = await API.getWeather(searchTerm);
-        const res = await fetch.data;
-        if (res == undefined) {
+        const fetchWeather = await API.getWeather(searchTerm);
+        const resWeather = await fetchWeather.data;
+        if (resWeather == undefined) {
           return;
         } else {
-          setSearchResults(res);
-          console.log("fetchData() Success");
+          const fetchCity = await API.getCity(searchTerm);
+          const resCity = await fetchCity.data.city.name;
+          setSearchResults(resCity);
+          console.log("verifyCity() Success");
         }
       } catch (err) {
         console.log(err);
       }
     }
-    fetchData();
+    verifyCity();
   }, [searchTerm]);
 
   return (
     <div>
       <form>
-        {/* {
-        (searchResults ? console.log(searchResults) : console.log(searchTerm),
-        console.log(searchResults),
-        console.log("searchResults Loading"))
-      } */}
-        <h1>
-          {/* {console.log(searchResults)}
-        {searchResults ? console.log(searchResults) : ""}
-        {searchTerm}
-        {test.testKey}
-      {props.test} */}
-        </h1>
         <Row>
-          {/* <Greeting greeting={greeting} /> */}
           <Col className="pt-1 px-1">
             <InputGroup>
               <InputGroup.Prepend>
@@ -68,11 +53,6 @@ function SearchCity() {
                 style={{ boxShadow: "none" }}
               />
             </InputGroup>
-            {/* <ul>
-            {searchResults.map((item) => (
-              <li>{item}</li>
-              ))}
-            </ul> */}
           </Col>
         </Row>
       </form>
