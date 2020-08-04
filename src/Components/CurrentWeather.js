@@ -20,12 +20,6 @@ const CurrentWeather = (props) => {
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const updateCity = () =>
-      props.city === undefined
-        ? fetchData()
-        : (setCity(props.city), fetchData());
-    updateCity();
-
     const fetchData = async () => {
       setIsLoading(true);
       try {
@@ -50,6 +44,11 @@ const CurrentWeather = (props) => {
         setIsLoading(false);
       }
     };
+    const updateCity = () =>
+      props.city === undefined
+        ? fetchData()
+        : (setCity(props.city), fetchData());
+    updateCity();
   }, [props.city]);
 
   const getDirection = (angle) => {
