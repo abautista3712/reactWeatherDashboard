@@ -6,7 +6,7 @@ import FormControl from "react-bootstrap/FormControl";
 import API from "../utils/API";
 import CurrentWeather from "./CurrentWeather";
 
-function SearchCity() {
+const SearchCity = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState();
   const handleChange = (event) => {
@@ -58,6 +58,6 @@ function SearchCity() {
       <CurrentWeather city={searchResults} />
     </div>
   );
-}
+};
 
 export default SearchCity;

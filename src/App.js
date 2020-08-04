@@ -17,7 +17,7 @@ const scatteredClouds = "./assets/images/scatteredClouds.jpg";
 // const snow = "";
 // const mist = "";
 
-function App() {
+const App = () => {
   return (
     <Container
       className="text-center"
@@ -30,9 +30,9 @@ function App() {
       fluid
     >
       <SearchCity />
-      <FiveDayTable />
+      {/* <FiveDayTable /> */}
     </Container>
   );
-}
+};
 
 export default App;

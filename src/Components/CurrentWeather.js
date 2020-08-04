@@ -5,7 +5,7 @@ import API from "../utils/API";
 import CurrentDate from "./CurrentDate";
 import "./CurrentWeather.css";
 
-function CurrentWeather(props) {
+const CurrentWeather = (props) => {
   const [city, setCity] = useState("Los Angeles");
   const [temperature, setTemperature] = useState();
   const [minTemp, setMinTemp] = useState();
@@ -26,7 +26,7 @@ function CurrentWeather(props) {
         : (setCity(props.city), fetchData());
     updateCity();
 
-    async function fetchData() {
+    const fetchData = async () => {
       setIsLoading(true);
       try {
         const fetchWeather = await API.getWeather(city);
@@ -49,15 +49,15 @@ function CurrentWeather(props) {
       } finally {
         setIsLoading(false);
       }
-    }
+    };
   }, [props.city]);
 
-  function getDirection(angle) {
+  const getDirection = (angle) => {
     const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
     return directions[
       Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8
     ];
-  }
+  };
 
   return (
     <div className="fontStyle">
@@ -81,14 +81,14 @@ function CurrentWeather(props) {
             >
               {temperature}°
             </Col>
-            <Row style={{ textAlign: "left" }}>
-              <Col md={12} className="my-auto px-0">
-                Low: {minTemp}°
-              </Col>
-              <Col md={12} className="my-auto px-0">
-                High: {maxTemp}°
-              </Col>
-            </Row>
+            {/* <Row style={{ textAlign: "left" }}> */}
+            <Col xs sm md={12} className="my-auto">
+              Low: {minTemp}°
+            </Col>
+            <Col xs sm md={12} className="my-auto">
+              High: {maxTemp}°
+            </Col>
+            {/* </Row> */}
           </Row>
           {/* Weather Condition */}
           <Row className="mt-0 mb-1">
@@ -129,6 +129,6 @@ function CurrentWeather(props) {
       )}
     </div>
   );
-}
+};
 
 export default CurrentWeather;

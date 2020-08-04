@@ -6,7 +6,7 @@ import API from "../utils/API";
 import moment from "moment";
 import "./FiveDayTable.css";
 
-function FiveDayTable() {
+const FiveDayTable = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [weather, setWeather] = useState({ weather: [] });
 
@@ -29,19 +29,19 @@ function FiveDayTable() {
     fetchData();
   }, []);
 
-  function getDirection(angle) {
+  const getDirection = (angle) => {
     const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
     return directions[
       Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8
     ];
-  }
+  };
 
   const daysOfWeek = [1, 2, 3, 4, 5, 6, 7];
 
   return (
     <Row>
       {isLoading ? (
-        console.log("FiveDatTable Loading...")
+        ""
       ) : (
         <Col>
           <div
@@ -126,6 +126,6 @@ function FiveDayTable() {
       )}
     </Row>
   );
-}
+};
 
 export default FiveDayTable;
