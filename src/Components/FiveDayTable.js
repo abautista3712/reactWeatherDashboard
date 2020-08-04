@@ -3,6 +3,7 @@ import Table from "react-bootstrap/Table";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
+import Convert from "../utils/Convert";
 import moment from "moment";
 import "./FiveDayTable.css";
 
@@ -28,13 +29,6 @@ const FiveDayTable = () => {
     }
     fetchData();
   }, []);
-
-  const getDirection = (angle) => {
-    const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
-    return directions[
-      Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8
-    ];
-  };
 
   const daysOfWeek = [1, 2, 3, 4, 5, 6, 7];
 
@@ -109,7 +103,7 @@ const FiveDayTable = () => {
                   return (
                     <td>
                       {filteredData.wind_speed}{" "}
-                      {getDirection(filteredData.wind_deg)}
+                      {Convert.getDirection(filteredData.wind_deg)}
                     </td>
                   );
                 })}

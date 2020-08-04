@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import API from "../utils/API";
+import Convert from "../utils/Convert";
 import CurrentDate from "./CurrentDate";
 import "./CurrentWeather.css";
 
@@ -51,13 +52,6 @@ const CurrentWeather = (props) => {
     updateCity();
   }, [props.city]);
 
-  const getDirection = (angle) => {
-    const directions = ["N", "NW", "W", "SW", "S", "SE", "E", "NE"];
-    return directions[
-      Math.round(((angle %= 360) < 0 ? angle + 360 : angle) / 45) % 8
-    ];
-  };
-
   return (
     <div className="fontStyle">
       {isLoading ? (
@@ -105,7 +99,7 @@ const CurrentWeather = (props) => {
             <Col md={{ span: 2, offset: 2 }}>
               <Col className="font-weight-bold">Wind</Col>
               <Col>
-                {windSpeed} mph {getDirection(windDirection)}
+                {windSpeed} mph {Convert.getDirection(windDirection)}
               </Col>
             </Col>
             {/* Humidity */}
