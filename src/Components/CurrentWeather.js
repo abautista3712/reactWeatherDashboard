@@ -67,19 +67,21 @@ const CurrentWeather = (props) => {
             <CurrentDate />
           </Row>
           {/* Temperature */}
-          <Row className="mt-1 mb-0">
+          <Row>
             <Col
-              md={{ span: 3, offset: 4 }}
-              style={{ lineHeight: "100%", fontSize: "90px" }}
+              className="pl-5"
+              style={{
+                lineHeight: "100%",
+                fontSize: "90px",
+                textAlign: "right",
+              }}
             >
               {temperature}°
             </Col>
             {/* <Row style={{ textAlign: "left" }}> */}
-            <Col xs sm md={12} className="my-auto">
-              Low: {minTemp}°
-            </Col>
-            <Col xs sm md={12} className="my-auto">
-              High: {maxTemp}°
+            <Col className="setFlexColumn pd-0">
+              <Col className="vCenterAlign hLeftAlign">Low: {minTemp}°</Col>
+              <Col className="vCenterAlign hLeftAlign">High: {maxTemp}°</Col>
             </Col>
             {/* </Row> */}
           </Row>

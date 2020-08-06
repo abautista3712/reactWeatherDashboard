@@ -1,3 +1,21 @@
+.setFlexColumn {
+  display: flex;
+  flex-flow: column;
+}
+
+.hCenterAlign {
+  justify-content: center;
+}
+
+.hLeftAlign {
+  justify-content: left;
+}
+
+.vCenterAlign {
+  display: flex;
+  align-items: center;
+}
+
 .fontStyle {
   font-family: "Open Sans", sans-serif;
   color: #fff;
