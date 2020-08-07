@@ -8,7 +8,10 @@ Created by abautista3712 | https://github.com/abautista3712
 
 ## Description
 
-reactWeatherDashboard is a React remake of WeatherDashboard (https://github.com/abautista3712/WeatherDashboard), a web application made to check the weather in different cities. The components of the app are broken down into three parts: a search bar, current weather, and a five-day forecast table. Data used to populate each component is the same as the original: city name, today's date, temperature, weather condition, humidity, wind, and UV index. All data us taken from the OpenWeather API.
+reactWeatherDashboard is a React remake of WeatherDashboard, a web application made to check the weather in different cities. The components of the app are broken down into three parts: a search bar, current weather, and a five-day forecast table. Data used to populate each component is the same as the original: city name, today's date, temperature, weather condition, humidity, wind, and UV index. All data us taken from the OpenWeather API.
+
+Original Version Demo: https://abautista3712.github.io/WeatherDashboard/  
+Original Version GitHub: https://github.com/abautista3712/WeatherDashboard
 
 ## Table of Contents
 
