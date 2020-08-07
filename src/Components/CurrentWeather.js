@@ -73,17 +73,18 @@ const CurrentWeather = (props) => {
               style={{
                 lineHeight: "100%",
                 fontSize: "90px",
-                textAlign: "right",
+                textAlign: "center",
               }}
             >
               {temperature}°
             </Col>
-            {/* <Row style={{ textAlign: "left" }}> */}
+          </Row>
+          <Row>
             <Col className="setFlexColumn pd-0">
-              <Col className="vCenterAlign hLeftAlign">Low: {minTemp}°</Col>
-              <Col className="vCenterAlign hLeftAlign">High: {maxTemp}°</Col>
+              <Col className="vCenterAlign hCenterAlign">
+                Low: {minTemp}° / High: {maxTemp}°
+              </Col>
             </Col>
-            {/* </Row> */}
           </Row>
           {/* Weather Condition */}
           <Row className="mt-0 mb-1">

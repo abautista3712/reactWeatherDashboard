@@ -37,7 +37,7 @@ const FiveDayTable = () => {
       {isLoading ? (
         ""
       ) : (
-        <Col>
+        <Col style={{ justifyContent: "center" }}>
           <div
             className="mb-1 fontStyle"
             style={{ backgroundColor: "rgba(0, 0, 0, 0.6)" }}

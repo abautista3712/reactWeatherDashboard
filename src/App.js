@@ -30,7 +30,7 @@ const App = () => {
       fluid
     >
       <SearchCity />
-      {/* <FiveDayTable /> */}
+      <FiveDayTable />
     </Container>
   );
 };
