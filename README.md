@@ -4,7 +4,7 @@ Created by abautista3712 | https://github.com/abautista3712
 
 ![npm](https://img.shields.io/npm/v/fs) ![npm](https://img.shields.io/npm/v/inquirer) ![npm](https://img.shields.io/npm/v/axios)
 
-![reactWeatherDashboardScreenshot](./public/assets/images/offlineBudgetTrackerScreenshot.PNG?raw=true "React Weather Dashboard")
+![reactWeatherDashboardScreenshot](./public/assets/images/reactWeatherDashboardScreenshot.PNG?raw=true "React Weather Dashboard")
 
 ## Description
 
