@@ -33,7 +33,7 @@ npm i
 
 ## Usage
 
-Accessible via:
+Accessible via: https://morning-peak-95799.herokuapp.com/
 
 ## License
 
