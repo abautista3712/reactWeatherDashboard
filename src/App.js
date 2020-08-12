@@ -31,6 +31,7 @@ const App = () => {
     >
       <SearchCity />
       <FiveDayTable />
+      {console.log(process.env)}
     </Container>
   );
 };
