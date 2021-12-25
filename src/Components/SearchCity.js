@@ -33,6 +33,13 @@ const SearchCity = () => {
     verifyCity();
   }, [searchTerm]);
 
+  // Prevent refresh if enter is pressed
+  const handleEnter = (e) => {
+    if (e.charCode === 13) {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div>
       <form>
@@ -48,6 +55,7 @@ const SearchCity = () => {
                 type="text"
                 placeholder="Search City"
                 value={searchTerm}
+                onKeyPress={handleEnter}
                 onChange={handleChange}
                 style={{ boxShadow: "none" }}
               />
